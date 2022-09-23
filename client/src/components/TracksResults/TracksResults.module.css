@@ -1,0 +1,66 @@
+#SearchResults {
+    /* background-color: red; */
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#titleContainer {
+    /* margin-left: 0; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: flex-start;
+}
+
+#title {
+    font-family: "DeezerFont";
+    font-weight: normal;
+    font-size: 2rem;
+}
+
+#orderContainer {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    border-bottom: #eaeaea;
+    border-bottom-style: solid;
+    border-width: 1px;
+
+    padding: 8px;
+    height: 32px;
+}
+
+#trackButtonContainer {
+    /* background-color: blue; */
+    flex: 1;
+    display: flex;
+    padding-right: 100px;
+}
+
+#buttonContainer {
+    /* background-color: purple; */
+    display: flex;
+    width: 15%;
+    margin-left: 2rem;
+}
+
+#durationButtonContainer{
+    /* background-color: purple; */
+    display: flex;
+    width: 40px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.orderButton{
+    background-color: rgba(250, 235, 215, 0);
+    border: none;
+    color: #72727d;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0;
+}

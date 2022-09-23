@@ -1,0 +1,54 @@
+#SearchResults {
+    /* background-color: red; */
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#titleContainer {
+    /* margin-left: 0; */
+    /* background-color: red; */
+    display: flex;
+    justify-content: flex-start;
+}
+
+#title {
+    font-family: "DeezerFont";
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+#itemsContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+}
+
+#artistContainer{
+
+}
+
+#imageContainer{
+    /* background-color: aqua; */
+    max-width: 250px;
+    max-height: 250px;
+}
+
+#image{
+    border-radius: 50%;
+}
+
+#infoContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+#name{
+
+}
+
+#fans{
+    font-size: 12px;
+    line-height: 18px;
+}

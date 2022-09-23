@@ -1,0 +1,147 @@
+.TrackCard {
+    height: 3.5rem;
+    width: 100%;
+}
+
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+    color: #191919;
+}
+
+#mainContainer {
+    height: 3.5rem;
+    max-width: 100%;
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: row;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#mainContainer:hover {
+    background-color: #f4f4f4;
+}
+
+#dataContainer {
+    /* background-color: blue; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#titleContainer {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#artistContainer {
+    width: 15%;
+    margin-left: 2rem;
+    /* background-color: blueviolet; */
+    display: flex;
+    align-items: center;
+}
+
+#artist {
+    font-size: 14px;
+    width: 100%;
+    /* background-color: aqua; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+}
+
+#artist:hover,
+#album:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#coverContainer {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    display: flex;
+}
+
+#imageContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#coverImage {
+    width: 40px;
+    height: 40px;
+}
+
+#coverButtonContainer {
+    /* background-color: red; */
+    opacity: 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainContainer:hover #coverButtonContainer {
+    opacity: 1;
+}
+
+#coverButton {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-width: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+#albumContainer {
+    width: 15%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+#album {
+    font-size: 14px;
+    width: 100%;
+    /* background-color: aqua; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+}
+
+#durationContainer {
+    width: 40px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    /* background-color: blueviolet; */
+    font-size: 14px;
+    user-select: none;
+}
