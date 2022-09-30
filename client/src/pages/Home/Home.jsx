@@ -52,9 +52,9 @@ function Home() {
       {searchNav === "Artists" && <ArtistsResults name="Artistas" items={searchResultsArtist} />}
       {searchNav === "Albums" && <AlbumsResults name="Albumes" items={searchResultsAlbum} />}
 
-      {/* <audio controls="controls">
+      <audio controls="controls">
         <source src="https://cdns-preview-7.dzcdn.net/stream/c-7e6044037d3d471df9fa9e6a6cd05bec-3.mp3" type="audio/mpeg" />
-      </audio> */}
+      </audio>
 
 
     </div>
