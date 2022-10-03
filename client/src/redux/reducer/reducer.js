@@ -1,7 +1,8 @@
-import { GET_ALBUM, GET_ARTIST, GET_TRACK } from "../actions/actionsTypes";
+import { GET_ALBUM, GET_ARTIST, GET_TRACK, SET_PLAYER_TRACK } from "../actions/actionsTypes";
 
 
 const initialState = {
+    playerTrack: [],
     artists: [],
     tracks: [],
     albums: [],
@@ -23,6 +24,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 albums: action.payload
+            }
+        case SET_PLAYER_TRACK:
+            return {
+                ...state, 
+                playerTrack: action.payload
             }
         default: return state;
     }

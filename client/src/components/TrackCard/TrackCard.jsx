@@ -1,6 +1,14 @@
 import styles from "./TrackCard.module.css";
+import { useDispatch } from "react-redux";
+import { setPlayerTrack } from "../../redux/actions/actions";
 
 function TrackCard({ item }) {
+    const dispatch = useDispatch();
+
+    function addTrackToPlayer(){
+        dispatch(setPlayerTrack(item));
+    }
+
     return (
         <div className={styles.TrackCard}>
             <div id={styles.mainContainer}>
@@ -10,7 +18,7 @@ function TrackCard({ item }) {
                             <img src={item.album.cover_small} id={styles.coverImage} />
                         </div>
                         <div id={styles.coverButtonContainer}>
-                            <button id={styles.coverButton}>
+                            <button id={styles.coverButton} onClick={addTrackToPlayer}>
                                 <svg focusable="false" height="1em" role="img" width="1em" viewBox="0 0 12 12" aria-hidden="true">
                                     <path fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                                         d="M2.5.5v11l9-5.5z"></path>

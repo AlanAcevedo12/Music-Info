@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALBUM, GET_ARTIST, GET_TRACK } from "./actionsTypes";
+import { GET_ALBUM, GET_ARTIST, GET_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -29,3 +29,9 @@ export const getAlbum = (albumName) => async dispatch => {
         console.log(e);
     }
 };
+
+export const setPlayerTrack = (track) => dispatch => {
+    return dispatch({
+        type: SET_PLAYER_TRACK, payload: track
+    })
+}

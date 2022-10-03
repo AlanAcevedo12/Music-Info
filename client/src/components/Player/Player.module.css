@@ -1,9 +1,244 @@
-.Player{
-    background-color: blue;
+.Player {
+    background: white;
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 80px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+
+    border-top: 1px solid #eaeaea;
+}
+
+#playerContainer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: bisque; */
+    flex: 1;
+}
+
+#buttonsContainer {
+    /* background-color: red; */
+    display: flex;
+    height: fit-content;
+    align-items: center;
+}
+
+#divButton {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#divButtonSmall {
+    /* background-color: yellow; */
+    height: fit-content;
+}
+
+
+.button {
+    height: 3rem;
+    width: 3rem;
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+}
+
+.buttonSmall {
+    height: 2rem;
+    width: 2rem;
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+}
+
+.svg {
+    width: 24px;
+    height: 24px;
+}
+
+.svgSmall {
+    width: 1rem;
+    height: 1rem;
+}
+
+.svgNone {
+    width: 24px;
+    height: 24px;
+    fill: #eaeaea;
+}
+
+.svgSmallNone {
+    width: 1rem;
+    height: 1rem;
+    fill: #eaeaea;
+}
+
+#sliderContainer {
+    /* background-color: aqua; */
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    padding: 0 72px;
+    height: 48px;
+    align-items: center;
+}
+
+#trackContainer {
+    /* background-color: blue; */
+    margin: auto;
+    width: 80%;
+    height: 3rem;
+}
+
+#trackHead {
+    height: 2rem;
+    /* background-color: antiquewhite; */
+    margin-bottom: 4px;
+}
+
+#trackRange {
+    height: 12px;
+    flex: 1;
+    position: relative;
+    /* background-color: aliceblue; */
+    display: flex;
+}
+
+#trackRange:hover #trackSlider {
+    height: 4px;
+    top: 4px;
+}
+
+#trackSlider {
+    background-color: #72727d;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    border-radius: 4px;
+}
+
+#range {
+    -webkit-appearance: none;
+    background-color: rgba(0, 136, 255, 0);
+    cursor: pointer;
+    height: 12px;
+    width: calc(100% + 12px);
+    top: 50%;
+    left: -6px;
+    margin-top: -6px;
+    position: absolute;
+}
+
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+#range::-webkit-slider-thumb {
+    background-color: white;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 50%;
+    visibility: hidden;
+}
+
+#trackRange:hover #range::-webkit-slider-thumb {
+    visibility: visible;
+}
+
+#counterCurrent,
+#counterMax {
+    position: absolute;
+    top: 5px;
+    display: block;
+    margin-top: -6px;
+    font-size: 10px;
+    color: #92929d;
+}
+
+#counterCurrent {
+    right: 100%;
+    padding-right: 12px;
+}
+
+#counterMax {
+    left: 100%;
+    padding-left: 12px;
+}
+
+#extraOptions {
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+    align-items: center;
+}
+
+#volumeButtonContainer {
+    margin-left: 4px;
+}
+
+#volumeButton {
+    background-color: #72727d00;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#volumeButton:hover {
+    background-color: #eaeaea;
+    cursor: pointer;
+}
+
+#albumContainer::before{
+    background-color: #eaeaea;
+    content: "";
+    height: 28px;
+    width: 1px;
+    position: absolute;
+    left: 0;
+}
+
+#albumContainer{
+    display: flex;
+    flex-direction: row;
+    width: 175px;
+    height: 44px;
+    /* background-color: #72727d; */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    position: relative;
+    margin-left: 12px;
+}
+
+#imgContainer{
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgb(25 25 34 / 16%);
+}
+
+#albumTitle{
+    margin-left: 0.5rem;
+    color: #191919;
+    height: 16px;
+    /* background-color: red; */
+    font-size: 12px;
+    align-self: center;
+    font-family: 'Open Sans', sans-serif;
 }
