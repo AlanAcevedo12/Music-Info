@@ -35,11 +35,17 @@
     height: fit-content;
     margin-left: 4px;
     margin-right: 4px;
+    border-radius: 50%;
+}
+
+#divButton:hover, #divButtonSmall:hover {
+    background-color: #eaeaea;
 }
 
 #divButtonSmall {
     /* background-color: yellow; */
     height: fit-content;
+    border-radius: 50%;
 }
 
 
@@ -48,6 +54,7 @@
     width: 3rem;
     background-color: rgba(240, 248, 255, 0);
     border: none;
+    cursor: pointer;
 }
 
 .buttonSmall {
@@ -55,6 +62,7 @@
     width: 2rem;
     background-color: rgba(240, 248, 255, 0);
     border: none;
+    cursor: pointer;
 }
 
 .svg {
@@ -115,6 +123,11 @@
     top: 4px;
 }
 
+#trackRange:hover #trackSliderProgress {
+    height: 4px;
+    top: 4px;
+}
+
 #trackSlider {
     background-color: #72727d;
     height: 2px;
@@ -123,6 +136,16 @@
     left: 0;
     top: 5px;
     border-radius: 4px;
+}
+
+#trackSliderProgress {
+    background: linear-gradient(1deg, #d32f2f 13%, #f6693c);
+    height: 2px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+    border-radius: 4px;
+    max-width: 100%;
 }
 
 #range {
@@ -203,7 +226,7 @@ input[type='range']::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-#albumContainer::before{
+#albumContainer::before {
     background-color: #eaeaea;
     content: "";
     height: 28px;
@@ -212,7 +235,7 @@ input[type='range']::-webkit-slider-thumb {
     left: 0;
 }
 
-#albumContainer{
+#albumContainer {
     display: flex;
     flex-direction: row;
     width: 175px;
@@ -225,7 +248,7 @@ input[type='range']::-webkit-slider-thumb {
     margin-left: 12px;
 }
 
-#imgContainer{
+#imgContainer {
     width: 28px;
     height: 28px;
     border-radius: 4px;
@@ -233,7 +256,7 @@ input[type='range']::-webkit-slider-thumb {
     box-shadow: 0 1px 6px rgb(25 25 34 / 16%);
 }
 
-#albumTitle{
+#albumTitle {
     margin-left: 0.5rem;
     color: #191919;
     height: 16px;

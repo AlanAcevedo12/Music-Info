@@ -24,7 +24,7 @@ function TracksResults({ name, items }) {
                 </div>
             </div>
             {items.map((item, index) => {
-                return <TrackCard item={item} key={index} />
+                return <TrackCard item={item} index={index} key={index} />
             })}
         </div>
     )

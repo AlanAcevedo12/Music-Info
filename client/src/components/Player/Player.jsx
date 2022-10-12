@@ -4,19 +4,22 @@ import { useSelector } from "react-redux";
 import styles from "./Player.module.css";
 
 function Player() {
-    const track = useSelector(state => state.playerTrack)
+    const trackId = useSelector(state => state.playerTrack)
+    const trackQueue = useSelector(state => state.tracks)
     const [input, setInput] = useState(0);
     const [volume, setVolume] = useState(0);
     const [playing, setPlaying] = useState(false);
+    const [trackIndex, setTrackIndex] = useState(0);
 
     let interval = null;
 
-    const [audio, setAudio] = useState(new Audio(track.preview))
+    const [audio, setAudio] = useState(new Audio(trackQueue[trackIndex]?.preview))
 
     useEffect(() => {
-        audio.src = track.preview;
-        playAndPauseMusic(true)
-    }, [track])
+        audio.src = trackQueue[trackId] ? trackQueue[trackId].preview : null;
+        playAndPauseMusic(true);
+        setTrackIndex(trackId);
+    }, [trackId])
 
     function onChangeHandler(e) {
         audio.pause();
@@ -46,12 +49,28 @@ function Player() {
         audio.volume(e.target.value);
     }
 
+    function nextHandler(e){
+        if(trackIndex >= trackQueue.length - 1) return;
+        audio.pause();
+        audio.src = trackQueue[trackIndex + 1].preview;
+        setTrackIndex(trackIndex + 1);
+        audio.play();
+    }
+
+    function prevHandler(e){
+        if(trackIndex <= 0) return;
+        audio.pause();
+        audio.src = trackQueue[trackIndex - 1].preview;
+        setTrackIndex(trackIndex - 1);
+        audio.play();
+    }
+
     return (
         <div className={styles.Player}>
             <div id={styles.playerContainer}>
                 <div id={styles.buttonsContainer}>
                     <div id={styles.divButtonSmall}>
-                        <button className={styles.buttonSmall} type="button">
+                        <button className={styles.buttonSmall} type="button" onClick={prevHandler}>
                             <svg viewBox="0 0 16 16" focusable="false" className={styles.svgSmall} data-testid="PlayIcon">
                                 <path d="M15 0v16L2 8.802V16H1V0h1v7.198L15 0z"></path>
                             </svg>
@@ -69,7 +88,7 @@ function Player() {
                         </button>
                     </div>
                     <div id={styles.divButtonSmall}>
-                        <button className={styles.buttonSmall} type="button">
+                        <button className={styles.buttonSmall} type="button" onClick={nextHandler}>
                             <svg viewBox="0 0 16 16" focusable="false" className={styles.svgSmall} data-testid="PlayIcon">
                                 <path d="M1 1v14l11-6.217V15h1V1h-1v6.217L1 1z"></path>
                             </svg>
@@ -83,6 +102,7 @@ function Player() {
                         <div id={styles.trackRange}>
                             <div id={styles.counterCurrent}>{audio.currentTime ? secondsToString(audio.currentTime) : "00:00"}</div>
                             <div id={styles.trackSlider}></div>
+                            <div id={styles.trackSliderProgress} style={{width: (audio.currentTime * 100 / 30) + "%"}}></div>
                             <input type="range" value={input} min="0" max="30" step="0.1" onChange={onChangeHandler} id={styles.range} />
                             <div id={styles.counterMax}>{audio.duration ? "00:30" : "00:00"}</div>
                         </div>

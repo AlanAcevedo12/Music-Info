@@ -2,11 +2,11 @@ import styles from "./TrackCard.module.css";
 import { useDispatch } from "react-redux";
 import { setPlayerTrack } from "../../redux/actions/actions";
 
-function TrackCard({ item }) {
+function TrackCard({ item, index }) {
     const dispatch = useDispatch();
 
     function addTrackToPlayer(){
-        dispatch(setPlayerTrack(item));
+        dispatch(setPlayerTrack(index));
     }
 
     return (
