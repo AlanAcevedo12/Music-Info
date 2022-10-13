@@ -46,19 +46,19 @@ function Player() {
 
     function volumeHandler(e) {
         setVolume(e.target.value);
-        audio.volume(e.target.value);
+        audio.volume = e.target.value;
     }
 
-    function nextHandler(e){
-        if(trackIndex >= trackQueue.length - 1) return;
+    function nextHandler(e) {
+        if (trackIndex >= trackQueue.length - 1) return;
         audio.pause();
         audio.src = trackQueue[trackIndex + 1].preview;
         setTrackIndex(trackIndex + 1);
         audio.play();
     }
 
-    function prevHandler(e){
-        if(trackIndex <= 0) return;
+    function prevHandler(e) {
+        if (trackIndex <= 0) return;
         audio.pause();
         audio.src = trackQueue[trackIndex - 1].preview;
         setTrackIndex(trackIndex - 1);
@@ -77,7 +77,7 @@ function Player() {
                         </button>
                     </div>
                     <div id={styles.divButton}>
-                        <button className={styles.button} type="button" onClick={() => {playAndPauseMusic(false)}}>
+                        <button className={styles.button} type="button" onClick={() => { playAndPauseMusic(false) }}>
                             <svg viewBox="0 0 16 16" focusable="false" className={styles.svg} data-testid="PlayIcon">
                                 {
                                     playing === false ? <path d="m3 1 12 7-12 7V1z"></path> :
@@ -102,7 +102,7 @@ function Player() {
                         <div id={styles.trackRange}>
                             <div id={styles.counterCurrent}>{audio.currentTime ? secondsToString(audio.currentTime) : "00:00"}</div>
                             <div id={styles.trackSlider}></div>
-                            <div id={styles.trackSliderProgress} style={{width: (audio.currentTime * 100 / 30) + "%"}}></div>
+                            <div id={styles.trackSliderProgress} style={{ width: (audio.currentTime * 100 / 30) + "%" }}></div>
                             <input type="range" value={input} min="0" max="30" step="0.1" onChange={onChangeHandler} id={styles.range} />
                             <div id={styles.counterMax}>{audio.duration ? "00:30" : "00:00"}</div>
                         </div>
@@ -111,6 +111,12 @@ function Player() {
                 </div>
                 <div id={styles.extraOptions}>
                     <div id={styles.volumeButtonContainer}>
+                        <div id={styles.volumeSliderContainer}>
+                            <div id={styles.volumeSlider}></div>
+                            <div id={styles.volumeSliderProgress} style={{ width: (volume * 90 / 1) + "%" }}></div>
+                            <input type="range" value={volume} min="0" max="1" step="0.01" onChange={volumeHandler} id={styles.volumeRange} />
+                            <div id={styles.volumeSliderContainerDrop}></div>
+                        </div>
                         <button id={styles.volumeButton}>
                             <svg viewBox="0 0 16 16" focusable="false" className={styles.svgSmall} data-testid="PlayIcon">
                                 <path d="M5.894 9.8H2V6.2h3.894L9 3.301V12.7L5.894 9.8zM1 10.8h4.5L10 15V1L5.5 

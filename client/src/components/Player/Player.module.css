@@ -38,7 +38,8 @@
     border-radius: 50%;
 }
 
-#divButton:hover, #divButtonSmall:hover {
+#divButton:hover,
+#divButtonSmall:hover {
     background-color: #eaeaea;
 }
 
@@ -208,6 +209,7 @@ input[type='range']::-webkit-slider-thumb {
 
 #volumeButtonContainer {
     margin-left: 4px;
+    position: relative;
 }
 
 #volumeButton {
@@ -221,10 +223,86 @@ input[type='range']::-webkit-slider-thumb {
     justify-content: center;
 }
 
+#volumeButtonContainer:hover #volumeSliderContainer,
+#volumeSliderContainerDrop {
+    visibility: visible;
+    /* background-color: red; */
+}
+
 #volumeButton:hover {
     background-color: #eaeaea;
     cursor: pointer;
 }
+
+
+#volumeSliderContainer {
+    background-color: white;
+    position: absolute;
+    top: -55px;
+    left: -100px;
+    width: 240px;
+    height: 44px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px 0 rgb(25 25 34/24%);
+    visibility: hidden;
+    display: flex;
+}
+
+#volumeSliderContainerDrop {
+    /* background-color: blue; */
+    position: absolute;
+    top: 100%;
+    left: 106px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid white;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    /* visibility: hidden; */
+}
+
+#volumeRange {
+    -webkit-appearance: none;
+    background-color: rgba(0, 136, 255, 0);
+    cursor: pointer;
+    height: 0px;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    /* position: absolute; */
+}
+
+#volumeRange::-webkit-slider-thumb {
+    background-color: white;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 50%;
+    /* visibility: visible; */
+}
+
+#volumeSlider {
+    background-color: #72727d;
+    width: 90%;
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    border-radius: 2px;
+}
+
+#volumeSliderProgress {
+    background-color: #191919;
+    /* width: 90%; */
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    border-radius: 2px;
+}
+
+
 
 #albumContainer::before {
     background-color: #eaeaea;
