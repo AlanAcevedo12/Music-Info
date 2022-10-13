@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Player.module.css";
+import { setCurrentTrack } from "../../redux/actions/actions";
 
 function Player() {
+    const dispatch = useDispatch();
+
     const trackId = useSelector(state => state.playerTrack)
     const trackQueue = useSelector(state => state.tracks)
     const [input, setInput] = useState(0);
@@ -18,8 +21,16 @@ function Player() {
     useEffect(() => {
         audio.src = trackQueue[trackId] ? trackQueue[trackId].preview : null;
         playAndPauseMusic(true);
+        dispatch(setCurrentTrack({trackId, isPlaying: true}));
         setTrackIndex(trackId);
+        setVolume(audio.volume);
     }, [trackId])
+
+    useEffect(() => {
+        if(audio.ended === true){
+            dispatch(setCurrentTrack({trackId, isPlaying: false}));
+        }
+    })
 
     function onChangeHandler(e) {
         audio.pause();
@@ -36,11 +47,13 @@ function Player() {
             console.log("playing")
             audio.play();
             setPlaying(true);
+            dispatch(setCurrentTrack({trackId: trackIndex, isPlaying: true}));
         }
         else {
             clearInterval(interval);
             audio.pause();
             setPlaying(false);
+            dispatch(setCurrentTrack({trackId: trackIndex, isPlaying: false}));
         }
     }
 
@@ -54,6 +67,7 @@ function Player() {
         audio.pause();
         audio.src = trackQueue[trackIndex + 1].preview;
         setTrackIndex(trackIndex + 1);
+        dispatch(setCurrentTrack({trackId: trackIndex + 1, isPlaying: playing}));
         audio.play();
     }
 
@@ -61,6 +75,7 @@ function Player() {
         if (trackIndex <= 0) return;
         audio.pause();
         audio.src = trackQueue[trackIndex - 1].preview;
+        dispatch(setCurrentTrack({trackId: trackIndex - 1, isPlaying: playing}));
         setTrackIndex(trackIndex - 1);
         audio.play();
     }
@@ -98,7 +113,9 @@ function Player() {
                 <div id={styles.sliderContainer}>
                     {/* <span>00:00</span> */}
                     <div id={styles.trackContainer}>
-                        <div id={styles.trackHead}></div>
+                        <div id={styles.trackHead}>
+                            <span id={styles.trackInfo}>{trackQueue[trackIndex]?.title + " - " + trackQueue[trackIndex]?.artist.name}</span>
+                        </div>
                         <div id={styles.trackRange}>
                             <div id={styles.counterCurrent}>{audio.currentTime ? secondsToString(audio.currentTime) : "00:00"}</div>
                             <div id={styles.trackSlider}></div>
@@ -129,10 +146,10 @@ function Player() {
                     </div>
                     <div id={styles.albumContainer}>
                         <div id={styles.imgContainer}>
-                            <img src="https://e-cdns-images.dzcdn.net/images/cover/1effbd752f7efc00ba33cbd8fbb4102b/28x28-000000-80-0-0.jpg" />
+                            <img src={trackQueue[trackIndex]?.album.cover_small} width="28px" height="28px"/>
                         </div>
                         <span id={styles.albumTitle}>
-                            Titulo Album
+                            {trackQueue[trackIndex]?.album.title}
                         </span>
                     </div>
                 </div>

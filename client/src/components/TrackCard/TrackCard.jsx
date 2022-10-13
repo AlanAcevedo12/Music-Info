@@ -1,11 +1,13 @@
 import styles from "./TrackCard.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPlayerTrack } from "../../redux/actions/actions";
 
 function TrackCard({ item, index }) {
     const dispatch = useDispatch();
 
-    function addTrackToPlayer(){
+    const currentTrack = useSelector(state => state.currentTrack);
+
+    function addTrackToPlayer() {
         dispatch(setPlayerTrack(index));
     }
 
@@ -25,18 +27,36 @@ function TrackCard({ item, index }) {
                                 </svg>
                             </button>
                         </div>
+                        {
+                            currentTrack.trackId === index &&
+                            <div id={styles.currentContainer} disabled="disabled">
+                                <button id={styles.coverButtonDisabled}>
+                                    <img src={require("../../assets/currentPlaying.gif")} />
+                                </button>
+                            </div>
+                        }
+                        {
+                            (currentTrack.trackId === index && currentTrack.isPlaying === false) &&
+                            <div id={styles.currentContainer}>
+                                <button id={styles.coverButtonDisabled} disabled="disabled">
+                                    <svg class="svg-icon svg-icon-pause" focusable="false" height="1em" role="img" width="1em"
+                                        viewBox="0 0 12 12" aria-hidden="true">
+                                        <path d="M2.495 0h2.01C4.778 0 5 .224 5 .5v11a.5.5 0 0 1-.495.5h-2.01A.498.498 0 0 1 2 11.5V.5a.5.5 0 0 1 .495-.5ZM7 .5a.5.5 0 0 1 .495-.5h2.01c.273 0 .495.224.495.5v11a.5.5 0 0 1-.495.5h-2.01A.498.498 0 0 1 7 11.5V.5Z"></path></svg>
+                                </button>
+                            </div>
+                        }
                     </div>
                     <div id={styles.titleContainer}>
-                        <span id={styles.title}>{item.title}</span>
+                        <span id={currentTrack.trackId === index ? styles.titleSelected : styles.title}>{item.title}</span>
                     </div>
                 </div>
                 <div id={styles.artistContainer}>
-                    <a href={item.artist.link} id={styles.artist}>{item.artist.name}</a>
+                    <a href={item.artist.link} id={currentTrack.trackId === index ? styles.artistSelected : styles.artist}>{item.artist.name}</a>
                 </div>
                 <div id={styles.albumContainer}>
-                    <a href={item.album.link} id={styles.album}>{item.album.title}</a>
+                    <a href={item.album.link} id={currentTrack.trackId === index ? styles.albumSelected : styles.album}>{item.album.title}</a>
                 </div>
-                <div id={styles.durationContainer}>
+                <div id={currentTrack.trackId === index ? styles.durationContainerSelected : styles.durationContainer}>
                     <span>{secondsToString(item.duration)}</span>
                 </div>
             </div>

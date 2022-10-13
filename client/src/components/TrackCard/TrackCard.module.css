@@ -48,6 +48,13 @@ a:active {
     text-overflow: ellipsis;
 }
 
+#titleSelected {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ef5466;
+}
+
 #artistContainer {
     width: 15%;
     margin-left: 2rem;
@@ -64,6 +71,17 @@ a:active {
     text-overflow: ellipsis;
     overflow: hidden;
     text-align: left;
+}
+
+#artistSelected {
+    font-size: 14px;
+    width: 100%;
+    /* background-color: aqua; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    color: #ef5466;
 }
 
 #artist:hover,
@@ -116,8 +134,31 @@ a:active {
     cursor: pointer;
 }
 
+#coverButtonDisabled {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-width: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    /* cursor: pointer; */
+}
+
 #coverButton:hover{
     background-color:#f4f4f4;
+}
+
+#currentContainer {
+    /* background-color: red; */
+    opacity: 1;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #albumContainer {
@@ -140,6 +181,18 @@ a:active {
     text-align: left;
 }
 
+#albumSelected {
+    font-size: 14px;
+    width: 100%;
+    /* background-color: aqua; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    color: #ef5466;
+}
+
+
 #durationContainer {
     width: 40px;
     margin-left: 2rem;
@@ -149,4 +202,16 @@ a:active {
     /* background-color: blueviolet; */
     font-size: 14px;
     user-select: none;
+}
+
+#durationContainerSelected {
+    width: 40px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    /* background-color: blueviolet; */
+    font-size: 14px;
+    user-select: none;
+    color: #ef5466;
 }
