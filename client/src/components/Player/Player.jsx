@@ -81,7 +81,7 @@ function Player() {
     }
 
     return (
-        <div className={styles.Player}>
+        <div className={trackId === 0 || trackId > 0 ? styles.Player : styles.PlayerHidden}>
             <div id={styles.playerContainer}>
                 <div id={styles.buttonsContainer}>
                     <div id={styles.divButtonSmall}>

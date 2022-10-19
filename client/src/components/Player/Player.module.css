@@ -1,4 +1,4 @@
-.Player {
+.Player, .PlayerHidden {
     z-index: 50;
     background: white;
     position: fixed;
@@ -10,6 +10,10 @@
     align-items: center;
 
     border-top: 1px solid #eaeaea;
+}
+
+.PlayerHidden {
+    display: none;
 }
 
 #playerContainer {
