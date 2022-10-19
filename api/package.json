@@ -22,7 +22,8 @@
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
     "ytdl-core": "^4.11.2",
-    "ytsr": "^3.8.0"
+    "ytsr": "^3.8.0",
+    "bcrypt": "^5.0.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
