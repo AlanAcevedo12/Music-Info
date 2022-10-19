@@ -1,0 +1,66 @@
+.RegisterContainer {
+    background-color: #121216;
+    min-height: 100vh;
+    margin: 0;
+    color: white;
+    padding-top: 4rem;
+}
+
+#form {
+    /* background-color: red; */
+    width: 385px;
+    height: auto;
+    margin: auto;
+    padding: 1rem 0px;
+}
+
+.inputContainer {
+    /* background-color: blue; */
+    width: 100%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputLabel {
+    /* background-color: green; */
+    width: fit-content;
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 4px;
+    color: #bebec7;
+}
+
+.input {
+    background-color: white;
+    padding: 17.5px 16px;
+    border-radius: 4px;
+    border: 1px solid #d1d1d6;
+    outline: none;
+
+    font-size: 14px;
+}
+
+#submitButton {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    background-color: #ef5466;
+    min-height: 54px;
+    padding: 19px 32px;
+    width: 100%;
+    border-radius: 100px;
+    transition-duration: 0.15s;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+#submitButton:active {
+    transform: scale(0.95);
+}
+
+#submitButton:hover {
+    background-color: #ca2a36;
+}

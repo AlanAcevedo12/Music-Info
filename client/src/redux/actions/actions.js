@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALBUM, GET_ARTIST, GET_TRACK, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { GET_ALBUM, GET_ARTIST, GET_TRACK, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -40,4 +40,17 @@ export const setCurrentTrack = (track) => dispatch => {
     return dispatch({
         type: SET_CURRENT_TRACK, payload: track
     })
+}
+
+export const register = (user) => async dispatch => {
+    try{
+        const createdUser = await axios.post(`${URL}/auth/register`, user);
+        return dispatch({
+            type: REGISTER, payload: createdUser
+        })
+    }catch(e){
+        return dispatch({
+            type: REGISTER_FAILED, payload: e
+        })
+    }
 }
