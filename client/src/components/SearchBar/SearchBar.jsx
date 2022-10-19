@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAlbum, getArtist, getTrack } from "../../redux/actions/actions";
 import styles from "./SearchBar.module.css";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
     const dispatch = useDispatch();
@@ -30,8 +31,17 @@ function SearchBar() {
                 <input id={styles.searchInput} type="text" autoComplete="off"
                     placeholder="Buscar" onChange={onChangeHandler} value={input} />
             </form>
-
-        </div>
+            <Link to="/register" id={styles.register}>
+                <span id={styles.registerSpan}>
+                    Registrarse
+                </span>
+            </Link>
+            {/* <div id={styles.userContainer}>
+                <button id={styles.userButton}>
+                    <img src="https://e-cdns-images.dzcdn.net/images/user//32x32-000000-80-0-0.jpg" />
+                </button>
+            </div> */}
+        </div >
     )
 }
 

@@ -41,6 +41,8 @@
     border-bottom-color: #52525d;
     border-bottom-width: 2px;
     font-family: 'Open Sans', sans-serif;
+    transition: border;
+    transition-duration: 0.2s;
 }
 
 .NavButtonSelected{
