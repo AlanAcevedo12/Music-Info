@@ -17,7 +17,10 @@ router.get('/register', async (req, res) => {
         })
         res.send(user);
     } catch (e) {
-        res.status(400).send({ msg: "Error desconocido", error: e })
+        if(e.name === "SequelizeUniqueConstraintError") 
+            res.status(400).send({ msg: "Error. Ya existe un usuario con el mismo email.", error: e })
+        else
+            res.status(400).send({ msg: "Error desconocido", error: e })
     }
 })
 
