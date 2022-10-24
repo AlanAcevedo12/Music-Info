@@ -4,6 +4,7 @@ const searchArtist = require("../controllers/searchArtist");
 const searchAlbum = require("../controllers/searchAlbum");
 const test = require("../controllers/test");
 const register = require("../controllers/authentication/register");
+const login = require("../controllers/authentication/login");
 
 const router = Router();
 
@@ -12,5 +13,6 @@ router.use("/search", searchArtist);
 router.use("/search", searchAlbum);
 router.use("/test", test)
 router.use("/auth", register)
+router.use("/auth", login)
 
 module.exports = router;
