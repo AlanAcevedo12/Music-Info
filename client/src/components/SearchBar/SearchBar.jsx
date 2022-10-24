@@ -31,6 +31,11 @@ function SearchBar() {
                 <input id={styles.searchInput} type="text" autoComplete="off"
                     placeholder="Buscar" onChange={onChangeHandler} value={input} />
             </form>
+            <Link to="/login" id={styles.login}>
+                <span id={styles.loginSpan}>
+                    Iniciar sesión
+                </span>
+            </Link>
             <Link to="/register" id={styles.register}>
                 <span id={styles.registerSpan}>
                     Registrarse
