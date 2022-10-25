@@ -58,6 +58,7 @@ export const register = (user) => async dispatch => {
 export const login = (user) => async dispatch => {
     try {
         const userLoged = await axios.post(`${URL}/auth/login`, user, {withCredentials: true});
+        if (userLoged.data.user) localStorage.setItem("user", JSON.stringify(userLoged.data.user));
         return dispatch({
             type: LOGIN, payload: userLoged
         })
