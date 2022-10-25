@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./LogIn.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../redux/actions/actions"
+import { login, register } from "../../redux/actions/actions"
 
 function LogIn() {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function LogIn() {
     function submitHandler(e) {
         e.preventDefault();
         // console.log(input);
-        dispatch(register(input))
+        dispatch(login(input))
     }
 
     return (
@@ -33,9 +33,9 @@ function LogIn() {
                 </div>
                 <div className={styles.inputContainer}>
                     <label className={styles.inputLabel}>Contraseña</label>
-                    <input className={styles.input} type="text" name="password" value={input.password} onChange={onChangeHandler} />
+                    <input className={styles.input} type="password" name="password" value={input.password} onChange={onChangeHandler} />
                 </div>
-                <button id={styles.submitButton} type="submit">REGISTRARSE</button>
+                <button id={styles.submitButton} type="submit">INICIAR SESIÓN</button>
             </form>
         </div>
     )

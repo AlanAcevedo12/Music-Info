@@ -6,7 +6,7 @@ const { comparePassword, hashPassword } = require("../../helpers/hash.js");
 const jwt = require("jsonwebtoken");
 const { jwtGenerator } = require("../../helpers/jwtGenerator.js")
 
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password)
         res.status(400).send({ msg: "Error! Datos incorrectos" })

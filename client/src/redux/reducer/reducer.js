@@ -1,4 +1,4 @@
-import { GET_ALBUM, GET_ARTIST, GET_TRACK, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "../actions/actionsTypes";
+import { GET_ALBUM, GET_ARTIST, GET_TRACK, LOGIN, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "../actions/actionsTypes";
 
 
 const initialState = {
@@ -7,7 +7,8 @@ const initialState = {
     tracks: [],
     albums: [],
     currentTrack: {},
-    registerError: undefined
+    registerError: undefined,
+    user: undefined
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -47,6 +48,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 registerError: action.payload
+            }
+        case LOGIN:
+            return {
+                ...state,
+                user: action.payload.user
             }
         default: return state;
     }
