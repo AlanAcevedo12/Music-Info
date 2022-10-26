@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALBUM, GET_ARTIST, GET_TRACK, LOGIN, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { GET_ALBUM, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -61,6 +61,17 @@ export const login = (user) => async dispatch => {
         if (userLoged.data.user) localStorage.setItem("user", JSON.stringify(userLoged.data.user));
         return dispatch({
             type: LOGIN, payload: userLoged
+        })
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+export const logout = () => async dispatch => {
+    try {
+        const userLoged = await axios.post(`${URL}/auth/logout`, {withCredentials: true});
+        return dispatch({
+            type: LOGOUT, payload: userLoged
         })
     } catch (e) {
         console.log(e);

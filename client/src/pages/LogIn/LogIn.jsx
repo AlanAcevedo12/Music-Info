@@ -2,12 +2,16 @@ import { useState } from "react";
 import styles from "./LogIn.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { login, register } from "../../redux/actions/actions"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LogIn() {
     const dispatch = useDispatch();
     const registerError = useSelector(state => state.registerError);
+    const user = useSelector(state => state.user);
     const [input, setInput] = useState({ name: "", surname: "", email: "", password: "", username: "", age: "" });
     const [errors, setErrors] = useState({ name: "", surname: "", email: "", password: "", username: "", age: "" });
+    const navigate = useNavigate();
 
     function onChangeHandler(e) {
         if (e.target.name === "age") if (/[^0-9]/.test(e.target.value)) return;
@@ -20,6 +24,10 @@ function LogIn() {
         // console.log(input);
         dispatch(login(input))
     }
+
+    useEffect(() => {
+        if (user?.name) navigate("/home");
+    })
 
     return (
         <div className={styles.RegisterContainer}>

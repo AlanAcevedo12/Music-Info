@@ -1,4 +1,4 @@
-import { GET_ALBUM, GET_ARTIST, GET_TRACK, LOGIN, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "../actions/actionsTypes";
+import { GET_ALBUM, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "../actions/actionsTypes";
 
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
     albums: [],
     currentTrack: {},
     registerError: undefined,
-    user: undefined
+    user: localStorage.getItem("user")
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -41,7 +41,7 @@ const rootReducer = (state = initialState, action) => {
         case REGISTER: 
             return {
                 ...state,
-                registerError: "No error"
+                registerError: null
             }
         case REGISTER_FAILED:
             console.log("errorrr")
@@ -50,9 +50,18 @@ const rootReducer = (state = initialState, action) => {
                 registerError: action.payload
             }
         case LOGIN:
+            // console.log(action.payload.data.user)
+            localStorage.setItem("user", JSON.stringify(action.payload.data.user));
             return {
                 ...state,
-                user: action.payload.user
+                user: action.payload.data.user
+            }
+        case LOGOUT:
+            localStorage.removeItem("user");
+            document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            console.log("hola")
+            return {
+                ...state
             }
         default: return state;
     }
