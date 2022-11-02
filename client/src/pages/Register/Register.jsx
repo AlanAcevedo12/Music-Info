@@ -46,7 +46,7 @@ function Register() {
                 </div>
                 <div className={styles.inputContainer}>
                     <label className={styles.inputLabel}>Contraseña</label>
-                    <input className={styles.input} type="text" name="password" value={input.password} onChange={onChangeHandler} />
+                    <input className={styles.input} type="password" name="password" value={input.password} onChange={onChangeHandler} />
                 </div>
                 <div className={styles.inputContainer}>
                     <label className={styles.inputLabel}>Edad</label>
