@@ -29,6 +29,9 @@ module.exports = (sequelize) => {
     age: {
       type: DataTypes.STRING
     },
+    favoriteTracks: {
+      type: DataTypes.ARRAY
+    }
   },{
     timestamps: false
   });
