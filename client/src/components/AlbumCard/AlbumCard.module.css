@@ -1,43 +1,68 @@
-#SearchResults {
-    /* background-color: red; */
-    width: 70%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-
-#titleContainer {
-    /* margin-left: 0; */
-    /* background-color: red; */
-    display: flex;
-    justify-content: flex-start;
-}
-
-#title {
-    font-family: "DeezerFont";
-    font-weight: 600;
-    font-size: 2rem;
-}
-
-#itemsContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 2rem;
-}
-
 #albumContainer {
     display: flex;
     flex-direction: column;
+}
+
+#albumImage {
+    max-width: 250px;
+    max-height: 250px;
+    position: relative;
+    transition-duration: 0.5s;
 }
 
 #imageContainer {
     /* background-color: aqua; */
     max-width: 250px;
     max-height: 250px;
+    overflow: hidden;
+}
+
+#filter {
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+    position: absolute;
+}
+
+#albumImage:hover #filter{
+    opacity: 0.24;
+}
+
+#albumImage:hover{
+    box-shadow: 0 1px 6px rgba(25,25,34,.24);
 }
 
 #image {
     /* border-radius: 50%; */
+    /* opacity: 0; */
+}
+
+#buttonContainer {
+    position: absolute;
+    bottom: 16px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    /* background-color: red; */
+    display: block;
+}
+
+#playButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+    border: none;
+    cursor: pointer;
+}
+
+#playButton:hover {
+    background-color: #f4f4f4;
 }
 
 #infoContainer {
