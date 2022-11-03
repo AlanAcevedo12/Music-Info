@@ -8,7 +8,7 @@ function Player() {
     const dispatch = useDispatch();
 
     const trackId = useSelector(state => state.playerTrack)
-    const trackQueue = useSelector(state => state.tracks)
+    const trackQueue = useSelector(state => state.currentQueue)
     const [input, setInput] = useState(0);
     const [volume, setVolume] = useState(0);
     const [playing, setPlaying] = useState(false);
@@ -21,14 +21,14 @@ function Player() {
     useEffect(() => {
         audio.src = trackQueue[trackId] ? trackQueue[trackId].preview : null;
         playAndPauseMusic(true);
-        dispatch(setCurrentTrack({trackId, isPlaying: true}));
+        dispatch(setCurrentTrack({ id: trackQueue[trackId]?.id, isPlaying: true }));
         setTrackIndex(trackId);
         setVolume(audio.volume);
-    }, [trackId])
+    }, [trackId, trackQueue])
 
     useEffect(() => {
-        if(audio.ended === true){
-            dispatch(setCurrentTrack({trackId, isPlaying: false}));
+        if (audio.ended === true) {
+            dispatch(setCurrentTrack({ id: trackQueue[trackId].id, isPlaying: false }));
         }
     })
 
@@ -47,13 +47,13 @@ function Player() {
             console.log("playing")
             audio.play();
             setPlaying(true);
-            dispatch(setCurrentTrack({trackId: trackIndex, isPlaying: true}));
+            dispatch(setCurrentTrack({ id: trackQueue[trackIndex]?.id, isPlaying: true }));
         }
         else {
             clearInterval(interval);
             audio.pause();
             setPlaying(false);
-            dispatch(setCurrentTrack({trackId: trackIndex, isPlaying: false}));
+            dispatch(setCurrentTrack({ id: trackQueue[trackIndex]?.id, isPlaying: false }));
         }
     }
 
@@ -67,7 +67,7 @@ function Player() {
         audio.pause();
         audio.src = trackQueue[trackIndex + 1].preview;
         setTrackIndex(trackIndex + 1);
-        dispatch(setCurrentTrack({trackId: trackIndex + 1, isPlaying: playing}));
+        dispatch(setCurrentTrack({ id: trackQueue[trackIndex + 1].id, isPlaying: playing }));
         audio.play();
     }
 
@@ -75,13 +75,15 @@ function Player() {
         if (trackIndex <= 0) return;
         audio.pause();
         audio.src = trackQueue[trackIndex - 1].preview;
-        dispatch(setCurrentTrack({trackId: trackIndex - 1, isPlaying: playing}));
+        dispatch(setCurrentTrack({ id: trackQueue[trackIndex - 1].id, isPlaying: playing }));
         setTrackIndex(trackIndex - 1);
         audio.play();
     }
 
+    if(trackQueue[0])
     return (
         <div className={trackId === 0 || trackId > 0 ? styles.Player : styles.PlayerHidden}>
+            {/* {console.log(trackQueue[0])} */}
             <div id={styles.playerContainer}>
                 <div id={styles.buttonsContainer}>
                     <div id={styles.divButtonSmall}>
@@ -146,7 +148,7 @@ function Player() {
                     </div>
                     <div id={styles.albumContainer}>
                         <div id={styles.imgContainer}>
-                            <img src={trackQueue[trackIndex]?.album.cover_small} width="28px" height="28px"/>
+                            <img src={trackQueue[trackIndex]?.album.cover_small} width="28px" height="28px" />
                         </div>
                         <span id={styles.albumTitle}>
                             {trackQueue[trackIndex]?.album.title}

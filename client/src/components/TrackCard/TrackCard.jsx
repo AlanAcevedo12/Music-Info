@@ -1,15 +1,19 @@
 import styles from "./TrackCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setPlayerTrack } from "../../redux/actions/actions";
+import { setCurrentQueue, setPlayerTrack } from "../../redux/actions/actions";
 
 function TrackCard({ item, index }) {
     const dispatch = useDispatch();
 
     const currentTrack = useSelector(state => state.currentTrack);
+    const tracks = useSelector(state => state.tracks);
 
     function addTrackToPlayer() {
+        dispatch(setCurrentQueue(tracks))
         dispatch(setPlayerTrack(index));
     }
+
+    // console.log(currentTrack.id);
 
     return (
         <div className={styles.TrackCard}>
@@ -28,7 +32,7 @@ function TrackCard({ item, index }) {
                             </button>
                         </div>
                         {
-                            currentTrack.trackId === index &&
+                            currentTrack.id === item.id &&
                             <div id={styles.currentContainer} disabled="disabled">
                                 <button id={styles.coverButtonDisabled}>
                                     <img src={require("../../assets/currentPlaying.gif")} />
@@ -36,7 +40,7 @@ function TrackCard({ item, index }) {
                             </div>
                         }
                         {
-                            (currentTrack.trackId === index && currentTrack.isPlaying === false) &&
+                            (currentTrack.id === item.id && currentTrack.isPlaying === false) &&
                             <div id={styles.currentContainer}>
                                 <button id={styles.coverButtonDisabled} disabled="disabled">
                                     <svg class="svg-icon svg-icon-pause" focusable="false" height="1em" role="img" width="1em"
@@ -47,16 +51,16 @@ function TrackCard({ item, index }) {
                         }
                     </div>
                     <div id={styles.titleContainer}>
-                        <span id={currentTrack.trackId === index ? styles.titleSelected : styles.title}>{item.title}</span>
+                        <span id={currentTrack.id === item.id ? styles.titleSelected : styles.title}>{item.title}</span>
                     </div>
                 </div>
                 <div id={styles.artistContainer}>
-                    <a href={item.artist.link} id={currentTrack.trackId === index ? styles.artistSelected : styles.artist}>{item.artist.name}</a>
+                    <a href={item.artist.link} id={currentTrack.id === item.id ? styles.artistSelected : styles.artist}>{item.artist.name}</a>
                 </div>
                 <div id={styles.albumContainer}>
-                    <a href={item.album.link} id={currentTrack.trackId === index ? styles.albumSelected : styles.album}>{item.album.title}</a>
+                    <a href={item.album.link} id={currentTrack.id === item.id ? styles.albumSelected : styles.album}>{item.album.title}</a>
                 </div>
-                <div id={currentTrack.trackId === index ? styles.durationContainerSelected : styles.durationContainer}>
+                <div id={currentTrack.id === item.id ? styles.durationContainerSelected : styles.durationContainer}>
                     <span>{secondsToString(item.duration)}</span>
                 </div>
             </div>

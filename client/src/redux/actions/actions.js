@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALBUM, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -42,6 +42,19 @@ export const setCurrentTrack = (track) => dispatch => {
     })
 }
 
+export const setCurrentQueue = (queue) => dispatch => {
+    return dispatch({
+        type: SET_CURRENT_QUEUE, payload: queue
+    })
+}
+
+export const getAlbumById = (id) => async dispatch => {
+    const { data } = await axios.get(`${URL}/get/album?q=${id}`)
+    return dispatch({
+        type: GET_ALBUM_BY_ID, payload: data
+    })
+}
+
 export const register = (user) => async dispatch => {
     try {
         const createdUser = await axios.post(`${URL}/auth/register`, user);
@@ -57,7 +70,7 @@ export const register = (user) => async dispatch => {
 
 export const login = (user) => async dispatch => {
     try {
-        const userLoged = await axios.post(`${URL}/auth/login`, user, {withCredentials: true});
+        const userLoged = await axios.post(`${URL}/auth/login`, user, { withCredentials: true });
         if (userLoged.data.user) localStorage.setItem("user", JSON.stringify(userLoged.data.user));
         return dispatch({
             type: LOGIN, payload: userLoged
@@ -69,7 +82,7 @@ export const login = (user) => async dispatch => {
 
 export const logout = () => async dispatch => {
     try {
-        const userLoged = await axios.post(`${URL}/auth/logout`, {withCredentials: true});
+        const userLoged = await axios.post(`${URL}/auth/logout`, { withCredentials: true });
         return dispatch({
             type: LOGOUT, payload: userLoged
         })

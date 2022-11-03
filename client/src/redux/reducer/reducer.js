@@ -1,4 +1,7 @@
-import { GET_ALBUM, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "../actions/actionsTypes";
+import {
+    GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK,
+    SET_CURRENT_QUEUE
+} from "../actions/actionsTypes";
 
 
 const initialState = {
@@ -6,7 +9,9 @@ const initialState = {
     artists: [],
     tracks: [],
     albums: [],
+    album: [],
     currentTrack: {},
+    currentQueue: [],
     registerError: undefined,
     user: localStorage.getItem("user")
 };
@@ -31,14 +36,25 @@ const rootReducer = (state = initialState, action) => {
         case SET_PLAYER_TRACK:
             return {
                 ...state,
-                playerTrack: action.payload
+                playerTrack: action.payload,
             }
         case SET_CURRENT_TRACK:
             return {
                 ...state,
                 currentTrack: action.payload
             }
-        case REGISTER: 
+        case SET_CURRENT_QUEUE:
+            return {
+                ...state,
+                currentQueue: action.payload
+            }
+        case GET_ALBUM_BY_ID:
+            return {
+                ...state,
+                album: action.payload,
+                currentQueue: action.payload.tracks.data
+            }
+        case REGISTER:
             return {
                 ...state,
                 registerError: null

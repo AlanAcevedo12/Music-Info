@@ -122,6 +122,9 @@
     /* margin-left: 2rem; */
     /* background-color: red; */
     font-weight: light;
+    color: #0a0a16;
+    font-size: 14px;
+    margin-left: 0;
 }
 
 #trackRange {
@@ -355,4 +358,7 @@ input[type='range']::-webkit-slider-thumb {
     font-size: 12px;
     align-self: center;
     font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
