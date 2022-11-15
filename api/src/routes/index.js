@@ -7,6 +7,7 @@ const register = require("../controllers/authentication/register");
 const login = require("../controllers/authentication/login");
 const logout = require('../controllers/authentication/logout');
 const getAlbum = require("../controllers/getAlbum.js");
+const addFavorite = require("../controllers/addFavorite.js")
 
 const router = Router();
 
@@ -21,6 +22,8 @@ router.use("/test", test);
 router.use("/auth", register);
 router.use("/auth", login);
 router.use("/auth", logout)
+
+router.use("/favorite", addFavorite);
 
 
 

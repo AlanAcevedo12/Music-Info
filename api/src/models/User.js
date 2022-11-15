@@ -30,9 +30,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
     favoriteTracks: {
-      type: DataTypes.ARRAY
+      type: DataTypes.JSON,
+      defaultValue: [],
     }
-  },{
+  }, {
     timestamps: false
   });
 };

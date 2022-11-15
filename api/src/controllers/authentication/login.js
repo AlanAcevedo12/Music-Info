@@ -25,7 +25,8 @@ router.post('/login', async (req, res) => {
                         surname: user.surname,
                         username: user.username,
                         email: user.email,
-                        age: user.age
+                        age: user.age,
+                        favoriteTracks: user.favoriteTracks
                     }
                 })
             }
