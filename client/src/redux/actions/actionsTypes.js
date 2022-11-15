@@ -13,3 +13,6 @@ export const REGISTER_FAILED = "REGISTER_FAILED";
 
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
+
+export const ADD_FAV = "ADD_FAV";
+export const DEL_FAV = "DEL_FAV";

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { ADD_FAV, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -89,4 +89,20 @@ export const logout = () => async dispatch => {
     } catch (e) {
         console.log(e);
     }
+}
+
+export const addFavorite = (fav) => async dispatch => {
+    console.log(fav);
+    const { data } = await axios.put(`${URL}/favorite/addFav`, fav);
+    return dispatch({
+        type: ADD_FAV, payload: data
+    })
+}
+
+export const removeFavorite = (fav) => async dispatch => {
+    console.log(fav);
+    const { data } = await axios.put(`${URL}/favorite/removeFav`, fav);
+    return dispatch({
+        type: DEL_FAV, payload: data
+    })
 }

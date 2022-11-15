@@ -21,6 +21,7 @@ router.post('/login', async (req, res) => {
                 res.cookie("jwt", token);
                 res.send({
                     user: {
+                        id: user.id,
                         name: user.name,
                         surname: user.surname,
                         username: user.username,

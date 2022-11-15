@@ -1,6 +1,8 @@
 import {
     GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK,
-    SET_CURRENT_QUEUE
+    SET_CURRENT_QUEUE,
+    ADD_FAV,
+    DEL_FAV
 } from "../actions/actionsTypes";
 
 
@@ -13,7 +15,7 @@ const initialState = {
     currentTrack: {},
     currentQueue: [],
     registerError: undefined,
-    user: localStorage.getItem("user")
+    user: JSON.parse(localStorage.getItem("user")),
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -75,8 +77,20 @@ const rootReducer = (state = initialState, action) => {
         case LOGOUT:
             localStorage.removeItem("user");
             document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            console.log("hola")
+            console.log("me jui")
             return {
+                ...state
+            }
+        case ADD_FAV:
+            localStorage.setItem("user", JSON.stringify(action.payload.user));
+            return {
+                user: action.payload.user,
+                ...state
+            }
+        case DEL_FAV:
+            localStorage.setItem("user", JSON.stringify(action.payload.user));
+            return {
+                user: action.payload.user,
                 ...state
             }
         default: return state;

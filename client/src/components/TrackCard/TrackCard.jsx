@@ -1,17 +1,39 @@
 import styles from "./TrackCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentQueue, setPlayerTrack } from "../../redux/actions/actions";
+import { addFavorite, removeFavorite, setCurrentQueue, setPlayerTrack } from "../../redux/actions/actions";
+import { useEffect, useState } from "react";
 
 function TrackCard({ item, index }) {
     const dispatch = useDispatch();
 
     const currentTrack = useSelector(state => state.currentTrack);
     const tracks = useSelector(state => state.tracks);
+    const user = useSelector(state => state.user);
+
+    const [isFav, setIsFav] = useState(user.favoriteTracks.includes(item.id));
 
     function addTrackToPlayer() {
         dispatch(setCurrentQueue(tracks))
         dispatch(setPlayerTrack(index));
     }
+
+    function addToFavorite() {
+        const data = { trackId: item.id, userId: user.id };
+        console.log(data);
+        dispatch(addFavorite(data))
+        setIsFav(true);
+    }
+
+    function deleteFavorite() {
+        const data = { trackId: item.id, userId: user.id };
+        console.log(data);
+        dispatch(removeFavorite(data))
+        setIsFav(false);
+    }
+
+    useEffect(() => {
+        console.log("actualiza")
+    }, [user])
 
     // console.log(currentTrack.id);
 
@@ -54,6 +76,17 @@ function TrackCard({ item, index }) {
                         <span id={currentTrack.id === item.id ? styles.titleSelected : styles.title}>{item.title}</span>
                     </div>
                 </div>
+                {
+                    user ?
+                        <div>
+                            {
+                                isFav ?
+                                    <button onClick={deleteFavorite}>REM FAV</button> :
+                                    <button onClick={addToFavorite}>ADD FAV</button>
+
+                            }
+                        </div> : null
+                }
                 <div id={styles.artistContainer}>
                     <a href={item.artist.link} id={currentTrack.id === item.id ? styles.artistSelected : styles.artist}>{item.artist.name}</a>
                 </div>
