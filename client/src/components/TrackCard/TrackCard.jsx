@@ -10,7 +10,7 @@ function TrackCard({ item, index }) {
     const tracks = useSelector(state => state.tracks);
     const user = useSelector(state => state.user);
 
-    const [isFav, setIsFav] = useState(user.favoriteTracks.includes(item.id));
+    const [isFav, setIsFav] = useState(user?.favoriteTracks.includes(item.id));
 
     function addTrackToPlayer() {
         dispatch(setCurrentQueue(tracks))

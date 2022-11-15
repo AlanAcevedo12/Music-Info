@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAlbum, getArtist, getTrack, logout } from "../../redux/actions/actions";
 import styles from "./SearchBar.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import UserPopUp from "../UserPopUp/UserPopUp";
 
 function SearchBar() {
     const dispatch = useDispatch();
     const [input, setInput] = useState("");
     const user = useSelector(state => state.user);
-    const navigate = useNavigate();
+    const [popUp, setPopUp] = useState(false);
 
     function onSubmitHandler(e) {
         e.preventDefault();
@@ -21,13 +22,10 @@ function SearchBar() {
         setInput(e.target.value);
     }
 
-    function goToProfile(){
-        navigate("/profile");
-    }
-
-    async function logoutHandler() {
-        await dispatch(logout());
-        window.location.reload();
+    function openPopUp() {
+        // navigate("/profile");
+        if (popUp) setPopUp(false);
+        if (!popUp) setPopUp(true);
     }
 
     return (
@@ -59,12 +57,13 @@ function SearchBar() {
                     :
                     <>
                         <div id={styles.userContainer}>
-                            <button id={styles.userButton} onClick={goToProfile}>
+                            <button id={styles.userButton} onClick={openPopUp}>
                                 <img src="https://e-cdns-images.dzcdn.net/images/user//32x32-000000-80-0-0.jpg" />
                             </button>
-                            <h1>{user.name}</h1>
+                            {
+                                popUp && <UserPopUp styles={{ position: "absolute" }} user={user} />
+                            }
                         </div>
-                        <button onClick={logoutHandler}>EXIT</button>
                     </>
             }
         </div >
