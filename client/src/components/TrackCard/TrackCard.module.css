@@ -146,8 +146,8 @@ a:active {
     /* cursor: pointer; */
 }
 
-#coverButton:hover{
-    background-color:#f4f4f4;
+#coverButton:hover {
+    background-color: #f4f4f4;
 }
 
 #currentContainer {
@@ -214,4 +214,36 @@ a:active {
     font-size: 14px;
     user-select: none;
     color: #ef5466;
+}
+
+#favButtonContainer {
+    /* background-color: red; */
+    display: flex;
+    margin: auto;
+}
+
+#addFavButton {
+    background-color: #f4f4f400;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+#favSvg {
+    width: 1rem;
+    height: 1rem;
+    color: #32323d;
+    fill: currentColor;
+    transition-duration: 1s;
+}
+
+#remFavSvg {
+    width: 1rem;
+    height: 1rem;
+    color: #EF5466;
+    fill: currentColor;
 }
