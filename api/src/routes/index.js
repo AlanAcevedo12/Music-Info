@@ -7,7 +7,8 @@ const register = require("../controllers/authentication/register");
 const login = require("../controllers/authentication/login");
 const logout = require('../controllers/authentication/logout');
 const getAlbum = require("../controllers/getAlbum.js");
-const addFavorite = require("../controllers/addFavorite.js")
+const addFavorite = require("../controllers/addFavorite.js");
+const removeFavorite = require("../controllers/removeFavorite.js");
 
 const router = Router();
 
@@ -24,6 +25,7 @@ router.use("/auth", login);
 router.use("/auth", logout)
 
 router.use("/favorite", addFavorite);
+router.use("/favorite", removeFavorite);
 
 
 
