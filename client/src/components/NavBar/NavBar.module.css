@@ -17,24 +17,39 @@
     /* background-color: red; */
     text-align: center;
     padding: 1rem;
+    font-family: "DeezerFont";
 }
 
 #listContainer {
-    background-color: green;
+    /* background-color: green; */
     height: 100%;
+    font-family: "DeezerFont";
 }
 
 #navList {
-    background-color: blue;
+    /* background-color: blue; */
     height: auto;
     list-style: none;
+    padding: 0;
 }
 
 #navItem {
-    background-color: purple;
+    /* background-color: purple; */
+    width: 100%;
+}
+
+#navItem:hover{
+    color: #ef5466;
+    fill: currentColor;
+}
+
+#itemText {
+    font-family: "DeezerFont";
 }
 
 .itemContainer {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    font-size: 18px;
 }
