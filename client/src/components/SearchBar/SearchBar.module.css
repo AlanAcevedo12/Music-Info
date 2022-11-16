@@ -1,5 +1,5 @@
 #searchBarContainer {
-    /* background-color: red; */
+    background-color: white;
     height: 3.5rem;
     display: flex;
     flex-direction: row;
@@ -8,8 +8,12 @@
     border-bottom: #eaeaea;
     border-bottom-style: solid;
     border-width: 1px;
-    padding-left: 24px;
+    /* padding-left: 24px; */
     padding-right: 24px;
+    position: fixed;
+    max-width: calc(100% - 265px);
+    width: 100%;
+    z-index: 10;
 }
 
 #form {
@@ -19,6 +23,7 @@
     display: grid;
     grid-template-columns: 1fr 90% 1fr;
     margin: auto;
+    margin-left: 0;
 }
 
 #searchInput {
