@@ -1,4 +1,4 @@
-#navBarContainer{
+#navBarContainer {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -10,4 +10,31 @@
     border-right: #eaeaea;
     border-right-style: solid;
     border-width: 1px;
+}
+
+#logoContainer {
+    font-size: 10px;
+    /* background-color: red; */
+    text-align: center;
+    padding: 1rem;
+}
+
+#listContainer {
+    background-color: green;
+    height: 100%;
+}
+
+#navList {
+    background-color: blue;
+    height: auto;
+    list-style: none;
+}
+
+#navItem {
+    background-color: purple;
+}
+
+.itemContainer {
+    display: flex;
+    flex-direction: row;
 }
