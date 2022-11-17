@@ -1,9 +1,11 @@
 #SearchResults {
     /* background-color: red; */
-    width: 70%;
-    margin: auto;
+    width: 90%;
+    /* margin: auto; */
     display: flex;
     flex-direction: column;
+    padding: 24px;
+    margin-left: 2rem;
 }
 
 #titleContainer {
@@ -11,6 +13,7 @@
     /* background-color: red; */
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 2rem;
 }
 
 #title {
