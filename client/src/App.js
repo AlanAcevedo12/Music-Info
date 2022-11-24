@@ -29,7 +29,7 @@ function App() {
 						element={<Home />}
 					/>
 					<Route
-						path="/search"
+						path="/search/:input"
 						element={<Search />}
 					/>
 					<Route
@@ -48,6 +48,10 @@ function App() {
 					<Route
 						path='/profile'
 						element={<Profile />}
+					/>
+					<Route
+						path="*"
+						element={<h1>404: NOT FOUND</h1>}
 					/>
 				</Routes>
 			</Suspense>

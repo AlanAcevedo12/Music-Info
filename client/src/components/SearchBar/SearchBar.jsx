@@ -5,20 +5,21 @@ import styles from "./SearchBar.module.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import UserPopUp from "../UserPopUp/UserPopUp";
 
-function SearchBar() {
+function SearchBar({ defaultInput }) {
     const dispatch = useDispatch();
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState(defaultInput);
     const user = useSelector(state => state.user);
     const [popUp, setPopUp] = useState(false);
     const navigate = useNavigate();
     let location = useLocation();
 
     function onSubmitHandler(e) {
-        e.preventDefault();
-        dispatch(getArtist(input));
-        dispatch(getTrack(input));
-        dispatch(getAlbum(input));
-        if(location.pathname !== "/search") navigate("/search"); 
+        // e.preventDefault();
+        // dispatch(getArtist(input));
+        // dispatch(getTrack(input));
+        // dispatch(getAlbum(input));
+        // if(location.pathname !== "/search") navigate("/search"); 
+        navigate("/search/" + input);
     }
 
     function onChangeHandler(e) {
