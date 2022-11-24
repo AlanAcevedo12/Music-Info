@@ -18,7 +18,7 @@ function SearchBar() {
         dispatch(getArtist(input));
         dispatch(getTrack(input));
         dispatch(getAlbum(input));
-        if(location.pathname !== "/home") navigate("/home"); 
+        if(location.pathname !== "/search") navigate("/search"); 
     }
 
     function onChangeHandler(e) {

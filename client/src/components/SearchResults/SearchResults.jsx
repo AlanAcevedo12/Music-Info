@@ -1,9 +1,9 @@
 import styles from "./SearchResults.module.css";
-import TracksResults from "../../components/TracksResults/TracksResults";
-import ArtistsResults from "../../components/ArtistsResults/ArtistsResults"
+import TracksResults from "../TracksResults/TracksResults";
+import ArtistsResults from "../ArtistsResults/ArtistsResults"
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import AlbumsResults from "../../components/AlbumsResults/AlbumsResults";
+import AlbumsResults from "../AlbumsResults/AlbumsResults";
 
 
 function SearchResults() {

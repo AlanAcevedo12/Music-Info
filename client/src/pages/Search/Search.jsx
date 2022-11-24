@@ -1,17 +1,13 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import TracksResults from "../../components/TracksResults/TracksResults";
-import ArtistsResults from "../../components/ArtistsResults/ArtistsResults"
-import styles from "./Home.module.css";
-import AlbumsResults from "../../components/AlbumsResults/AlbumsResults";
+import styles from "./Search.module.css";
 import Player from "../../components/Player/Player";
 import NavBar from "../../components/NavBar/NavBar";
+import SearchResults from "../../components/SearchResults/SearchResults";
 
-function Home() {
+function Search() {
 
   return (
-    <div id={styles.home}>
+    <div id={styles.search}>
       <Player />
       <div id={styles.mainContainer}>
         <div id={styles.nav}>
@@ -21,11 +17,11 @@ function Home() {
           <div id={styles.search}>
             <SearchBar />
           </div>
-          <h1>Home</h1>
+          <SearchResults />
         </div>
       </div>
     </div>
   );
 }
 
-export default Home;
+export default Search;

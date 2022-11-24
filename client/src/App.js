@@ -12,6 +12,7 @@ const Register = lazy(() => import("./pages/Register/Register"));
 const LogIn = lazy(() => import("./pages/LogIn/LogIn"));
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Favorites = lazy(() => import("./pages/Favorites/Favorites"));
+const Search = lazy(() => import("./pages/Search/Search"));
 
 function App() {
 	return (
@@ -26,6 +27,10 @@ function App() {
 					<Route
 						path="/home"
 						element={<Home />}
+					/>
+					<Route
+						path="/search"
+						element={<Search />}
 					/>
 					<Route
 						excact
