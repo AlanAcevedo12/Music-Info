@@ -11,6 +11,7 @@ const Home = lazy(() => import("./pages/Home/Home"));
 const Register = lazy(() => import("./pages/Register/Register"));
 const LogIn = lazy(() => import("./pages/LogIn/LogIn"));
 const Profile = lazy(() => import("./pages/Profile/Profile"));
+const Favorites = lazy(() => import("./pages/Favorites/Favorites"));
 
 function App() {
 	return (
@@ -25,6 +26,11 @@ function App() {
 					<Route
 						path="/home"
 						element={<Home />}
+					/>
+					<Route
+						excact
+						path="/favorites"
+						element={<Favorites />}
 					/>
 					<Route
 						path='/register'

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAlbum, getArtist, getTrack, logout } from "../../redux/actions/actions";
 import styles from "./SearchBar.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import UserPopUp from "../UserPopUp/UserPopUp";
 
 function SearchBar() {
@@ -10,12 +10,15 @@ function SearchBar() {
     const [input, setInput] = useState("");
     const user = useSelector(state => state.user);
     const [popUp, setPopUp] = useState(false);
+    const navigate = useNavigate();
+    let location = useLocation();
 
     function onSubmitHandler(e) {
         e.preventDefault();
         dispatch(getArtist(input));
         dispatch(getTrack(input));
         dispatch(getAlbum(input));
+        if(location.pathname !== "/home") navigate("/home"); 
     }
 
     function onChangeHandler(e) {
