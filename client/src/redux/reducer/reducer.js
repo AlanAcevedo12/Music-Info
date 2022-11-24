@@ -62,7 +62,7 @@ const rootReducer = (state = initialState, action) => {
                 registerError: null
             }
         case REGISTER_FAILED:
-            console.log("errorrr")
+            // console.log("errorrr")
             return {
                 ...state,
                 registerError: action.payload
@@ -77,21 +77,22 @@ const rootReducer = (state = initialState, action) => {
         case LOGOUT:
             localStorage.removeItem("user");
             document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            console.log("me jui")
+            // console.log("me jui")
             return {
                 ...state
             }
         case ADD_FAV:
             localStorage.setItem("user", JSON.stringify(action.payload.user));
+            // console.log(action.payload.user)
             return {
-                user: action.payload.user,
-                ...state
+                ...state,
+                user: action.payload.user
             }
         case DEL_FAV:
             localStorage.setItem("user", JSON.stringify(action.payload.user));
             return {
-                user: action.payload.user,
-                ...state
+                ...state,
+                user: action.payload.user
             }
         default: return state;
     }
