@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_FAV, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { ADD_FAV, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -92,7 +92,7 @@ export const logout = () => async dispatch => {
 }
 
 export const addFavorite = (fav) => async dispatch => {
-    console.log(fav);
+    // console.log(fav);
     const { data } = await axios.put(`${URL}/favorite/addFav`, fav);
     return dispatch({
         type: ADD_FAV, payload: data
@@ -100,9 +100,19 @@ export const addFavorite = (fav) => async dispatch => {
 }
 
 export const removeFavorite = (fav) => async dispatch => {
-    console.log(fav);
+    // console.log(fav);
     const { data } = await axios.put(`${URL}/favorite/removeFav`, fav);
     return dispatch({
         type: DEL_FAV, payload: data
+    })
+}
+
+export const getTracksById = (ids) => async dispatch => {
+    console.log(ids);
+    let objeto = {nombre: "Alan"}
+    const { data } = await axios.post(`${URL}/get/track`, {tracksId: ids});
+
+    return dispatch({
+        type: GET_TRACKS_BY_ID, payload: data
     })
 }

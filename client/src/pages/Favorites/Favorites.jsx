@@ -1,16 +1,25 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import styles from "./Favorites.module.css";
 import Player from "../../components/Player/Player";
 import NavBar from "../../components/NavBar/NavBar";
+import SearchResults from "../../components/SearchResults/SearchResults";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getTracksById } from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
-function Favorites() {
+function Search() {
+    const dispatch = useDispatch();
+    const { input } = useParams();
 
-    const user = useSelector(state => state.user);
+    const tracks = useSelector(state => state.user.favoriteTracks);
+
+    useEffect(() => {
+        if (tracks.length) dispatch(getTracksById(tracks));
+    }, [tracks])
 
     return (
-        <div id={styles.home}>
+        <div id={styles.search}>
             <Player />
             <div id={styles.mainContainer}>
                 <div id={styles.nav}>
@@ -18,27 +27,13 @@ function Favorites() {
                 </div>
                 <div id={styles.searchAndResultContainer}>
                     <div id={styles.search}>
-                        <SearchBar />
+                        <SearchBar defaultInput={input} />
                     </div>
-                    <div>
-                        <h1>Favoritos</h1>
-                        <ul>
-                            {
-                                user.favoriteTracks?.map(
-                                    (f, k) => {
-                                        console.log(f)
-                                        return (<li>
-                                            id: {f}
-                                        </li>)
-                                    }
-                                )
-                            }
-                        </ul>
-                    </div>
+                    <SearchResults />
                 </div>
             </div>
         </div>
     );
 }
 
-export default Favorites;
+export default Search;

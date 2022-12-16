@@ -16,3 +16,5 @@ export const LOGOUT = "LOGOUT";
 
 export const ADD_FAV = "ADD_FAV";
 export const DEL_FAV = "DEL_FAV";
+
+export const GET_TRACKS_BY_ID = "GET_TRACKS_BY_ID";

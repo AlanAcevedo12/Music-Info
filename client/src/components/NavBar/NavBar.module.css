@@ -20,6 +20,10 @@
     font-family: "DeezerFont";
 }
 
+#logo:hover {
+    color: #ef5466;
+}
+
 #listContainer {
     /* background-color: green; */
     height: 100%;
@@ -36,18 +40,31 @@
 #navItem {
     /* background-color: purple; */
     width: 100%;
+    height: auto;
+    color: #191919;
 }
 
-#navItem:hover{
+#itemContainer {
+    /* background-color: red; */
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#navItem:hover,
+#navItem:hover #itemText {
     color: #ef5466;
-    fill: currentColor;
+    fill: #ef5466;
 }
 
 #itemText {
     font-family: "DeezerFont";
+    margin-left: 1rem;
 }
 
-.itemContainer {
+.itemLink {
     display: flex;
     flex-direction: row;
     justify-content: center;

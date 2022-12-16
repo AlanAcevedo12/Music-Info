@@ -2,7 +2,8 @@ import {
     GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK,
     SET_CURRENT_QUEUE,
     ADD_FAV,
-    DEL_FAV
+    DEL_FAV,
+    GET_TRACKS_BY_ID
 } from "../actions/actionsTypes";
 
 
@@ -93,6 +94,12 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 user: action.payload.user
+            }
+        case GET_TRACKS_BY_ID: 
+            console.log(action.payload)
+            return {
+                ...state,
+                tracks: action.payload
             }
         default: return state;
     }
