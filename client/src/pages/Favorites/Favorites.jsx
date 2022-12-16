@@ -20,7 +20,7 @@ function Search() {
 
     return (
         <div id={styles.search}>
-            <Player />
+            {/* <Player /> */}
             <div id={styles.mainContainer}>
                 <div id={styles.nav}>
                     <NavBar />

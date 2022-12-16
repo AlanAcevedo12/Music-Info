@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import React, { lazy, Suspense } from "react";
 import Landing from "./pages/Landing/Landing";
+import Player from './components/Player/Player';
 // import Home from "./pages/Home/Home";
 // import Register from './pages/Register/Register';
 // import LogIn from './pages/LogIn/LogIn';
@@ -17,6 +18,7 @@ const Search = lazy(() => import("./pages/Search/Search"));
 function App() {
 	return (
 		<div className="App">
+			<Player />
 			<Suspense fallback={<h1>Cargando...</h1>}>
 				<Routes>
 					<Route

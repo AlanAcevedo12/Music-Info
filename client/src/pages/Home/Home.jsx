@@ -7,12 +7,12 @@ import styles from "./Home.module.css";
 import AlbumsResults from "../../components/AlbumsResults/AlbumsResults";
 import Player from "../../components/Player/Player";
 import NavBar from "../../components/NavBar/NavBar";
+import { useEffect } from "react";
 
 function Home() {
 
   return (
     <div id={styles.home}>
-      <Player />
       <div id={styles.mainContainer}>
         <div id={styles.nav}>
           <NavBar />
