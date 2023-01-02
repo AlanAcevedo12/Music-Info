@@ -10,6 +10,7 @@ const getAlbum = require("../controllers/getAlbum.js");
 const addFavorite = require("../controllers/addFavorite.js");
 const removeFavorite = require("../controllers/removeFavorite.js");
 const getTracksById = require("../controllers/getTracksById.js");
+const createReview = require("../controllers/reviews/createReview.js")
 
 const router = Router();
 
@@ -29,6 +30,8 @@ router.use("/auth", logout)
 
 router.use("/favorite", addFavorite);
 router.use("/favorite", removeFavorite);
+
+router.use("/review", createReview);
 
 
 

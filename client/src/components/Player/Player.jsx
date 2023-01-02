@@ -65,19 +65,23 @@ function Player() {
     function nextHandler(e) {
         if (trackIndex >= trackQueue.length - 1) return;
         audio.pause();
+        setPlaying(false);
         audio.src = trackQueue[trackIndex + 1].preview;
         setTrackIndex(trackIndex + 1);
         dispatch(setCurrentTrack({ id: trackQueue[trackIndex + 1].id, isPlaying: playing }));
         audio.play();
+        setPlaying(true);
     }
 
     function prevHandler(e) {
         if (trackIndex <= 0) return;
         audio.pause();
+        setPlaying(false);
         audio.src = trackQueue[trackIndex - 1].preview;
         dispatch(setCurrentTrack({ id: trackQueue[trackIndex - 1].id, isPlaying: playing }));
         setTrackIndex(trackIndex - 1);
         audio.play();
+        setPlaying(true);
     }
 
     if(trackQueue[0])

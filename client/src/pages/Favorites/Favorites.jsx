@@ -5,7 +5,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getTracksById } from "../../redux/actions/actions";
+import { clearSearch, getTracksById } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function Search() {
@@ -15,6 +15,7 @@ function Search() {
     const tracks = useSelector(state => state.user.favoriteTracks);
 
     useEffect(() => {
+        dispatch(clearSearch());
         if (tracks.length) dispatch(getTracksById(tracks));
     }, [tracks])
 
@@ -29,7 +30,12 @@ function Search() {
                     <div id={styles.search}>
                         <SearchBar defaultInput={input} />
                     </div>
-                    <SearchResults />
+                    {
+                        tracks.length ?
+                        <SearchResults />
+                        :
+                        <h1>Aún no has agregado canciones favoritas</h1>
+                    }
                 </div>
             </div>
         </div>

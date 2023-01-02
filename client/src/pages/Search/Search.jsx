@@ -5,7 +5,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import SearchResults from "../../components/SearchResults/SearchResults";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getAlbum, getArtist, getTrack } from "../../redux/actions/actions";
+import { clearSearch, getAlbum, getArtist, getTrack } from "../../redux/actions/actions";
 import { useDispatch } from "react-redux";
 
 function Search() {
@@ -13,6 +13,7 @@ function Search() {
     const {input} = useParams();
 
     useEffect(() => {
+        dispatch(clearSearch());
         dispatch(getArtist(input));
         dispatch(getTrack(input));
         dispatch(getAlbum(input)); 

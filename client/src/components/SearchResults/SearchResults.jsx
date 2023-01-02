@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import AlbumsResults from "../AlbumsResults/AlbumsResults";
 
+// import loadingGif from "../../assets/loading.gif"
 
 function SearchResults() {
   const searchResultsArtist = useSelector(state => state.artists);
@@ -43,7 +44,6 @@ function SearchResults() {
           <SearchResults name="Albumes" items={searchResultsAlbum} />
         </>
       )} */}
-
       {searchNav === "Tracks" && <TracksResults name="Canciones" items={searchResultsTrack} />}
       {searchNav === "Artists" && <ArtistsResults name="Artistas" items={searchResultsArtist} />}
       {searchNav === "Albums" && <AlbumsResults name="Albumes" items={searchResultsAlbum} />}

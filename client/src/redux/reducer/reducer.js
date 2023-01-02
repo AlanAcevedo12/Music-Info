@@ -3,7 +3,8 @@ import {
     SET_CURRENT_QUEUE,
     ADD_FAV,
     DEL_FAV,
-    GET_TRACKS_BY_ID
+    GET_TRACKS_BY_ID,
+    CLEAR_SEARCH
 } from "../actions/actionsTypes";
 
 
@@ -96,10 +97,17 @@ const rootReducer = (state = initialState, action) => {
                 user: action.payload.user
             }
         case GET_TRACKS_BY_ID: 
-            console.log(action.payload)
+            // console.log(action.payload)
             return {
                 ...state,
                 tracks: action.payload
+            }
+        case CLEAR_SEARCH:
+            return {
+                ...state,
+                tracks: [],
+                albums: [],
+                artists: []
             }
         default: return state;
     }

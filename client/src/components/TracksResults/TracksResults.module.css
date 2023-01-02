@@ -67,3 +67,8 @@
     font-weight: 500;
     padding: 0;
 }
+
+#loadingImg {
+    width: 300px;
+    margin: auto;
+}

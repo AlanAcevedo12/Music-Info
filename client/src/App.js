@@ -20,7 +20,7 @@ function App() {
 		<div className="App">
 			<Player />
 			<Suspense fallback={<h1>Cargando...</h1>}>
-				<Routes>
+				<Routes >
 					<Route
 						excact
 						path="/"

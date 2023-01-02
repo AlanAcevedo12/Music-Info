@@ -8,9 +8,10 @@ function AlbumsResults({ items }) {
     const dispatch = useDispatch();
     const album = useSelector(state => state.album);
 
-    function getAlbum(item) {
-        dispatch(getAlbumById(item.id));
+    async function getAlbum(item) {
+        await dispatch(getAlbumById(item.id));
         dispatch(setPlayerTrack(0));
+        // console.log(album);
     }
 
     // useEffect(() => {
