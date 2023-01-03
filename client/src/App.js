@@ -14,6 +14,7 @@ const LogIn = lazy(() => import("./pages/LogIn/LogIn"));
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Favorites = lazy(() => import("./pages/Favorites/Favorites"));
 const Search = lazy(() => import("./pages/Search/Search"));
+const CreateReview = lazy(() => import("./pages/CreateReview/CreateReview"));
 
 function App() {
 	return (
@@ -50,6 +51,10 @@ function App() {
 					<Route
 						path='/profile'
 						element={<Profile />}
+					/>
+					<Route
+						path='/review/create/:albumId'
+						element={<CreateReview />}
 					/>
 					<Route
 						path="*"

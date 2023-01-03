@@ -177,9 +177,9 @@
     position: absolute;
 }
 
-input[type='range'],
-input[type='range']::-webkit-slider-runnable-track,
-input[type='range']::-webkit-slider-thumb {
+#range,
+#range::-webkit-slider-runnable-track,
+#range::-webkit-slider-thumb {
     -webkit-appearance: none;
 }
 

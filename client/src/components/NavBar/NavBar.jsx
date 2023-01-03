@@ -14,23 +14,26 @@ function NavBar() {
                     <li id={styles.navItem}>
                         <Link to="/favorites" className={styles.itemLink}>
                             <div id={styles.itemContainer}>
-                                <svg class={styles.svgIcon} focusable="false" height="24" role="img" width="24" viewBox="0 0 24 24" >
-                                    <path d="M11.381 20.41c.402.385.619.59.619.59s3.475-3.276 8.34-8.338c4.694-4.98-1.427-13.749-7.66-7.493a11.246 11.246 0 0 0-.68.744l-.043-.05c-.212-.25-.425-.48-.637-.693-6.233-6.25-12.354 2.608-7.66 7.492a279.09 279.09 0 0 0 7.72 7.747z">
-                                    </path>
+                                <svg class={styles.svgIcon} focusable="false" viewBox="0 0 24 24">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
                                 </svg>
                                 <span id={styles.itemText}>Favoritos</span>
                             </div>
                         </Link>
                     </li>
-                    {/* <li id={styles.navItem}>
-                        <Link to="/search/" className={styles.itemContainer}>
-                            <svg viewBox="0 0 24 24" width="24px" height="24px" id={styles.svgSearch}>
-                                <path d="M20 11a8 8 0 1 0-16 0 8 8 0 0 0 16 0zm-2.707 7.28a9 9 0 1 1 .772-.63l3.289 3.29a.5.5 0 0 1-.708.706l-3.292-3.292a.507.507 0 0 1-.061-.074z"
-                                />
-                            </svg>
-                            <span id={styles.itemText}>Busqueda</span>
+                    <li id={styles.navItem}>
+                        <Link to="/review/create" className={styles.itemLink}>
+                            <div id={styles.itemContainer}>
+                                <div className={styles.svgContainer}>
+                                    <svg class={styles.svgIcon} focusable="false" viewBox="1 1 15 15">
+                                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span id={styles.itemText}>Reseña</span>
+                            </div>
                         </Link>
-                    </li> */}
+                    </li>
                 </ul>
             </div>
         </div>

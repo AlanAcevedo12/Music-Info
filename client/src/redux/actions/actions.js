@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_FAV, CLEAR_SEARCH, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { ADD_FAV, CLEAR_SEARCH, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -118,5 +118,12 @@ export const getTracksById = (ids) => async dispatch => {
 export const clearSearch = () => dispatch => {
     return dispatch({
         type: CLEAR_SEARCH, payload: []
+    })
+}
+
+export const postReview = (review) => async dispatch => {
+    const { data } = await axios.post(`${URL}/review/create`, review);
+    return dispatch({
+        type: POST_REVIEW, payload: data
     })
 }

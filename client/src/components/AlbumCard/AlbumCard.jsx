@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./AlbumCard.module.css"
 
 function AlbumCard({ item, getAlbum }) {
@@ -15,6 +16,11 @@ function AlbumCard({ item, getAlbum }) {
                             <path fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M2.5.5v11l9-5.5z">
                             </path>
                         </svg>
+                    </button>
+                    <button>
+                        <Link to={`/review/create/${item.id}`} >
+                            RESEÑA
+                        </Link>
                     </button>
                 </div>
             </div>

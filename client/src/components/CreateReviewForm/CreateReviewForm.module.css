@@ -1,0 +1,80 @@
+.CreateReviewForm {
+    /* background-color: red; */
+    width: 100%;
+    height: auto;
+}
+
+#form {
+    /* background-color: purple; */
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+#titleInputContainer {
+    /* background-color: yellow; */
+    height: auto;
+    display: flex;
+}
+
+#titleInput {
+    /* background-color: aqua; */
+    resize: none;
+
+    width: 80%;
+    height: 3rem;
+    margin: auto;
+    overflow: hidden;
+
+    font-size: 2rem;
+    color: #191919;
+    font-family: 'DeezerFont', sans-serif;
+    font-weight: normal;
+
+    padding: 17.5px 16px;
+    border-radius: 4px;
+    border: 1px solid #d1d1d6;
+    outline: none;
+}
+
+#scoreInputContainer {
+    /* background-color: lime; */
+    height: 4rem;
+    display: flex;
+}
+
+#scoreInput {
+    /* background-color: aqua; */
+
+    width: 80%;
+    height: 3rem;
+    margin: auto;
+}
+
+#reviewInputContainer {
+    /* background-color: green; */
+    height: auto;
+    display: flex;
+}
+
+#reviewInput {
+    resize: none;
+    /* background-color: aqua; */
+
+    width: 80%;
+    height: 10rem;
+    margin: auto;
+
+    font-size: 1rem;
+    color: #191919;
+    font-family: 'DeezerFont', sans-serif;
+    font-weight: normal;
+
+    padding: 17.5px 16px;
+    border-radius: 4px;
+    border: 1px solid #d1d1d6;
+    outline: none;
+}

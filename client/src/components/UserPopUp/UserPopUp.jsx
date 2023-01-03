@@ -11,6 +11,7 @@ function UserPopUp({ user }) {
 
     async function logoutHandler() {
         await dispatch(logout());
+        navigate("/home");
         window.location.reload();
     }
 

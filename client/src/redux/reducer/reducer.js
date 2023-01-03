@@ -4,7 +4,8 @@ import {
     ADD_FAV,
     DEL_FAV,
     GET_TRACKS_BY_ID,
-    CLEAR_SEARCH
+    CLEAR_SEARCH,
+    POST_REVIEW
 } from "../actions/actionsTypes";
 
 
@@ -18,6 +19,7 @@ const initialState = {
     currentQueue: [],
     registerError: undefined,
     user: JSON.parse(localStorage.getItem("user")),
+    postCreated: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -108,6 +110,11 @@ const rootReducer = (state = initialState, action) => {
                 tracks: [],
                 albums: [],
                 artists: []
+            }
+        case POST_REVIEW:
+            return {
+                ...state,
+                postCreated: action.payload
             }
         default: return state;
     }
