@@ -8,9 +8,6 @@ module.exports = (sequelize) => {
             unique: true,
             primaryKey: true
         },
-        albumId: {
-            type: DataTypes.STRING
-        },
         title: {
             type: DataTypes.STRING
         },
