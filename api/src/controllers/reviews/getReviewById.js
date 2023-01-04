@@ -9,6 +9,9 @@ router.get("/", async (req, res) => {
             include: [{
                 model: User,
                 attributes: ["name", "surname"]
+            },
+            {
+                model: Album
             }]
         });
         res.send(review);
