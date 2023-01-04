@@ -11,7 +11,7 @@ const addFavorite = require("../controllers/addFavorite.js");
 const removeFavorite = require("../controllers/removeFavorite.js");
 const getTracksById = require("../controllers/getTracksById.js");
 const createReview = require("../controllers/reviews/createReview.js");
-const getReview = require("../controllers/reviews/getReview.js")
+const getReview = require("../controllers/reviews/getReviewById.js")
 
 const router = Router();
 

@@ -5,12 +5,16 @@ const { Review, User, Album } = require("../../db.js");
 router.get("/", async (req, res) => {
     const { id } = req.query;
     try {
-        const review = await Review.findByPk(id);
-
-        res.send(review)
+        const review = await Review.findByPk(id, {
+            include: [{
+                model: User,
+                attributes: ["name", "surname"]
+            }]
+        });
+        res.send(review);
     } catch (e) {
         console.log(e);
-        res.send("Error Crear Reseña");
+        res.send("Error al Obtener Reseña");
     }
 })
 
