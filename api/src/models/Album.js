@@ -8,12 +8,10 @@ module.exports = (sequelize) => {
             primaryKey: true
         },
         totalScore: {
-            type: DataTypes.FLOAT,
-            defautValue: 0
+            type: DataTypes.INTEGER,
         },
         totalReviews: {
             type: DataTypes.INTEGER,
-            defautValue: 0
         }
     }, {
         timestamps: false
