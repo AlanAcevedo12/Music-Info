@@ -1,5 +1,4 @@
 const { Router } = require("express");
-const axios = require("axios");
 const router = Router();
 const { Review, User, Album } = require("../../db.js");
 
