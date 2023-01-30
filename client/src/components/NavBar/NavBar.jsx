@@ -22,7 +22,7 @@ function NavBar() {
                         </Link>
                     </li>
                     <li id={styles.navItem}>
-                        <Link to="/review/create" className={styles.itemLink}>
+                        <Link to="/review/1" className={styles.itemLink}>
                             <div id={styles.itemContainer}>
                                 <div className={styles.svgContainer}>
                                     <svg class={styles.svgIcon} focusable="false" viewBox="1 1 15 15">

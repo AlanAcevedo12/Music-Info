@@ -23,3 +23,4 @@ export const CLEAR_SEARCH = "CLEAR_SEARCH";
 
 //REVIEW
 export const POST_REVIEW = "POST_REVIEW";
+export const GET_REVIEW_BY_ID = "GET_REVIEW_BY_ID";

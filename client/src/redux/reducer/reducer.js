@@ -5,7 +5,8 @@ import {
     DEL_FAV,
     GET_TRACKS_BY_ID,
     CLEAR_SEARCH,
-    POST_REVIEW
+    POST_REVIEW,
+    GET_REVIEW_BY_ID
 } from "../actions/actionsTypes";
 
 
@@ -19,7 +20,7 @@ const initialState = {
     currentQueue: [],
     registerError: undefined,
     user: JSON.parse(localStorage.getItem("user")),
-    postCreated: {}
+    review: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -98,7 +99,7 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload.user
             }
-        case GET_TRACKS_BY_ID: 
+        case GET_TRACKS_BY_ID:
             // console.log(action.payload)
             return {
                 ...state,
@@ -114,7 +115,12 @@ const rootReducer = (state = initialState, action) => {
         case POST_REVIEW:
             return {
                 ...state,
-                postCreated: action.payload
+                review: action.payload
+            }
+        case GET_REVIEW_BY_ID:
+            return {
+                ...state,
+                review: action.payload
             }
         default: return state;
     }
