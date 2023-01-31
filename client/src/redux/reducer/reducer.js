@@ -7,7 +7,8 @@ import {
     CLEAR_SEARCH,
     POST_REVIEW,
     GET_REVIEW_BY_ID,
-    GET_REVIEWS_BY_ALBUM
+    GET_REVIEWS_BY_ALBUM,
+    GET_REVIEWS_BY_USER
 } from "../actions/actionsTypes";
 
 
@@ -125,6 +126,11 @@ const rootReducer = (state = initialState, action) => {
                 review: action.payload
             }
         case GET_REVIEWS_BY_ALBUM:
+            return {
+                ...state,
+                reviews: action.payload
+            }
+        case GET_REVIEWS_BY_USER:
             return {
                 ...state,
                 reviews: action.payload

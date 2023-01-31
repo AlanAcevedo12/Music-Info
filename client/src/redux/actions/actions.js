@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_FAV, CLEAR_SEARCH, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_REVIEWS_BY_ALBUM, GET_REVIEW_BY_ID, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { ADD_FAV, CLEAR_SEARCH, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_REVIEWS_BY_ALBUM, GET_REVIEWS_BY_USER, GET_REVIEW_BY_ID, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -135,10 +135,18 @@ export const getReviewById = (id) => async dispatch => {
     })
 }
 
+export const getReviewsByUser = (userId) => async dispatch => {
+    const { data } = await axios.get(`${URL}/reviews?userId=${userId}`);
+
+    return dispatch({
+        type: GET_REVIEWS_BY_ALBUM, payload: data
+    })
+}
+
 export const getReviewsByAlbum = (albumId) => async dispatch => {
     const { data } = await axios.get(`${URL}/reviews?albumId=${albumId}`);
 
     return dispatch({
-        type: GET_REVIEWS_BY_ALBUM, payload: data
+        type: GET_REVIEWS_BY_USER, payload: data
     })
 }
