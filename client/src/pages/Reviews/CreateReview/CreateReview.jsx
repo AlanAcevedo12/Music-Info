@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "../../../components/SearchBar/SearchBar";
 import styles from "./CreateReview.module.css";
-import NavBar from "../../components/NavBar/NavBar";
+import NavBar from "../../../components/NavBar/NavBar";
 import { useEffect } from "react";
-import CreateReviewForm from "../../components/CreateReviewForm/CreateReviewForm";
+import CreateReviewForm from "../../../components/Reviews/CreateReviewForm/CreateReviewForm";
 import { useParams } from "react-router-dom";
 
 function CreateReview() {

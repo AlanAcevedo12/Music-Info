@@ -1,13 +1,6 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import TracksResults from "../../components/TracksResults/TracksResults";
-import ArtistsResults from "../../components/ArtistsResults/ArtistsResults"
 import styles from "./Home.module.css";
-import AlbumsResults from "../../components/AlbumsResults/AlbumsResults";
-import Player from "../../components/Player/Player";
 import NavBar from "../../components/NavBar/NavBar";
-import { useEffect } from "react";
 
 function Home() {
 

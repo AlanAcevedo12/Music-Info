@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ReviewContent from "../../components/ReviewContent/ReviewContent";
-import { getReviewById } from "../../redux/actions/actions";
+import ReviewContent from "../../../components/Reviews/ReviewContent/ReviewContent";
+import { getReviewById } from "../../../redux/actions/actions";
 import styles from "./Review.module.css";
-import NavBar from "../../components/NavBar/NavBar";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import NavBar from "../../../components/NavBar/NavBar";
+import SearchBar from "../../../components/SearchBar/SearchBar";
 
 function Review() {
     const dispatch = useDispatch();

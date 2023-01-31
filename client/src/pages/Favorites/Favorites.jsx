@@ -2,7 +2,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import styles from "./Favorites.module.css";
 import Player from "../../components/Player/Player";
 import NavBar from "../../components/NavBar/NavBar";
-import SearchResults from "../../components/SearchResults/SearchResults";
+import SearchResults from "../../components/Results/SearchResults/SearchResults";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { clearSearch, getTracksById } from "../../redux/actions/actions";
@@ -32,9 +32,9 @@ function Search() {
                     </div>
                     {
                         tracks.length ?
-                        <SearchResults />
-                        :
-                        <h1>Aún no has agregado canciones favoritas</h1>
+                            <SearchResults />
+                            :
+                            <h1>Aún no has agregado canciones favoritas</h1>
                     }
                 </div>
             </div>

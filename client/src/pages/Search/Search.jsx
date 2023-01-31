@@ -1,8 +1,7 @@
 import SearchBar from "../../components/SearchBar/SearchBar";
 import styles from "./Search.module.css";
-import Player from "../../components/Player/Player";
 import NavBar from "../../components/NavBar/NavBar";
-import SearchResults from "../../components/SearchResults/SearchResults";
+import SearchResults from "../../components/Results/SearchResults/SearchResults";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { clearSearch, getAlbum, getArtist, getTrack } from "../../redux/actions/actions";

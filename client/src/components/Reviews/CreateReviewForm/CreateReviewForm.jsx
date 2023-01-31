@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postReview } from "../../redux/actions/actions.js";
+import { postReview } from "../../../redux/actions/actions.js";
 import styles from "./CreateReviewForm.module.css";
 
 function CreateReviewForm({ albumId }) {

@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getReviewById } from "../../redux/actions/actions";
 import styles from "./ReviewContent.module.css";
 
 function ReviewContent({ review }) {

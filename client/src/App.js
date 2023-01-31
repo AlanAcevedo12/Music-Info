@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import React, { lazy, Suspense } from "react";
 import Landing from "./pages/Landing/Landing";
 import Player from './components/Player/Player';
-import ListReviews from './pages/ListReviews/ListReviews';
+// import ListReviews from './pages/ListReviews/ListReviews';
 // import Home from "./pages/Home/Home";
 // import Register from './pages/Register/Register';
 // import LogIn from './pages/LogIn/LogIn';
@@ -15,8 +15,9 @@ const LogIn = lazy(() => import("./pages/LogIn/LogIn"));
 const Profile = lazy(() => import("./pages/Profile/Profile"));
 const Favorites = lazy(() => import("./pages/Favorites/Favorites"));
 const Search = lazy(() => import("./pages/Search/Search"));
-const CreateReview = lazy(() => import("./pages/CreateReview/CreateReview"));
-const Review = lazy(() => import("./pages/Review/Review.jsx"));
+const CreateReview = lazy(() => import("./pages/Reviews/CreateReview/CreateReview"));
+const Review = lazy(() => import("./pages/Reviews/Review/Review.jsx"));
+const ListReviews = lazy(() => import("./pages/Reviews/ListReviews/ListReviews"));
 
 function App() {
 	return (

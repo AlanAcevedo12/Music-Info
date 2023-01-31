@@ -1,6 +1,6 @@
 import styles from "./TrackCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite, setCurrentQueue, setPlayerTrack } from "../../redux/actions/actions";
+import { addFavorite, removeFavorite, setCurrentQueue, setPlayerTrack } from "../../../redux/actions/actions";
 import { useEffect, useState } from "react";
 
 function TrackCard({ item, index }) {
@@ -57,7 +57,7 @@ function TrackCard({ item, index }) {
                             currentTrack.id === item.id &&
                             <div id={styles.currentContainer} disabled="disabled">
                                 <button id={styles.coverButtonDisabled}>
-                                    <img src={require("../../assets/currentPlaying.gif")} />
+                                    <img src={require("../../../assets/currentPlaying.gif")} />
                                 </button>
                             </div>
                         }

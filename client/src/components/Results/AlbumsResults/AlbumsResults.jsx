@@ -1,7 +1,7 @@
 import styles from "./AlbumsResults.module.css";
 import AlbumCard from "../AlbumCard/AlbumCard";
 import { useDispatch, useSelector } from "react-redux";
-import { getAlbumById, setCurrentQueue, setPlayerTrack } from "../../redux/actions/actions";
+import { getAlbumById, setCurrentQueue, setPlayerTrack } from "../../../redux/actions/actions";
 import { useEffect } from "react";
 
 function AlbumsResults({ items }) {
