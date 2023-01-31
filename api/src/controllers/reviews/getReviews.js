@@ -4,9 +4,18 @@ const { Review, User, Album } = require("../../db.js");
 
 router.get("/", async (req, res) => {
     const { albumId } = req.query;
+    const { userId } = req.query;
+    let where = null;
+
+    console.log(albumId);
+    console.log(userId)
+
+    if (albumId) where = { albumId };
+    if (userId) where = { userId };
+
     try {
         const reviews = await Review.findAll({
-            where: { albumId },
+            where: where,
             include: [{
                 model: User,
                 attributes: ["name", "surname"]
