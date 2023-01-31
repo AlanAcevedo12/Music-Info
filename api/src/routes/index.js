@@ -11,7 +11,8 @@ const addFavorite = require("../controllers/addFavorite.js");
 const removeFavorite = require("../controllers/removeFavorite.js");
 const getTracksById = require("../controllers/getTracksById.js");
 const createReview = require("../controllers/reviews/createReview.js");
-const getReview = require("../controllers/reviews/getReviewById.js")
+const getReview = require("../controllers/reviews/getReviewById.js");
+const getReviews = require("../controllers/reviews/getReviews");
 
 const router = Router();
 
@@ -34,6 +35,7 @@ router.use("/favorite", removeFavorite);
 
 router.use("/review", createReview);
 router.use("/review", getReview);
+router.use("/reviews", getReviews);
 
 
 

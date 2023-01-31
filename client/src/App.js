@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import React, { lazy, Suspense } from "react";
 import Landing from "./pages/Landing/Landing";
 import Player from './components/Player/Player';
+import ListReviews from './pages/ListReviews/ListReviews';
 // import Home from "./pages/Home/Home";
 // import Register from './pages/Register/Register';
 // import LogIn from './pages/LogIn/LogIn';
@@ -52,6 +53,10 @@ function App() {
 					<Route
 						path='/profile'
 						element={<Profile />}
+					/>
+					<Route
+						path='/reviews'
+						element={<ListReviews />}
 					/>
 					<Route
 						path='/review/create/:albumId'

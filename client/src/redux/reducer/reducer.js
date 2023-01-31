@@ -6,7 +6,8 @@ import {
     GET_TRACKS_BY_ID,
     CLEAR_SEARCH,
     POST_REVIEW,
-    GET_REVIEW_BY_ID
+    GET_REVIEW_BY_ID,
+    GET_REVIEWS_BY_ALBUM
 } from "../actions/actionsTypes";
 
 
@@ -20,7 +21,8 @@ const initialState = {
     currentQueue: [],
     registerError: undefined,
     user: JSON.parse(localStorage.getItem("user")),
-    review: {}
+    review: {},
+    reviews: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -121,6 +123,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 review: action.payload
+            }
+        case GET_REVIEWS_BY_ALBUM:
+            return {
+                ...state,
+                reviews: action.payload
             }
         default: return state;
     }
