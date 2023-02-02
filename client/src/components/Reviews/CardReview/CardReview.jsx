@@ -1,22 +1,33 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import styles from "./CardReview.module.css";
+import axios from "axios";
 
 function CardReview({ review }) {
-    const date = new Date(review.date);
+    let reviewData = review.review;
+    const date = new Date(reviewData.date);
+
     return (
         <div className={styles.card}>
             <div id={styles.imageContainer}>
                 <img id={styles.image}
-                    src={`https://api.deezer.com/album/${review.album.id}/image`} />
+                    src={`https://api.deezer.com/album/${reviewData.album.id}/image`} />
+            </div>
+            <div id={styles.albumContainer}>
+                <p id={styles.album}>{review.album.title}</p>
             </div>
             <div id={styles.infoContainer}>
-                <h1>{review.title}</h1>
-                <p>{review.description}</p>
+                <h1 id={styles.title}>{reviewData.title}</h1>
+                <p id={styles.description}>{reviewData.description}</p>
             </div>
             <div id={styles.scoreContainer}>
-                <h2>{review.score}/100</h2>
+                <h2 id={styles.score}>{reviewData.score}/100</h2>
+            </div>
+            <div id={styles.authorContainer}>
+                <h4 id={styles.author}>by {reviewData.user.name + " " + reviewData.user.surname}</h4>
             </div>
             <div id={styles.dateContainer}>
-                <h4>{date.toLocaleDateString()}</h4>
+                <h4 id={styles.date}>{date.toLocaleDateString()}</h4>
             </div>
         </div>
     )

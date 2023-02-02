@@ -10,7 +10,7 @@ function ReviewsCardsList({ reviews }) {
                 reviews?.map(
                     (r, k) => {
                         return (
-                            <CardReview review={r} />
+                            <CardReview review={r} key={k} />
                         )
                     }
                 )
