@@ -20,7 +20,7 @@ const initialState = {
     album: [],
     currentTrack: {},
     currentQueue: [],
-    registerError: undefined,
+    registerStatus: undefined,
     user: JSON.parse(localStorage.getItem("user")),
     review: {},
     reviews: []
@@ -67,13 +67,13 @@ const rootReducer = (state = initialState, action) => {
         case REGISTER:
             return {
                 ...state,
-                registerError: null
+                registerStatus: action.payload
             }
         case REGISTER_FAILED:
             // console.log("errorrr")
             return {
                 ...state,
-                registerError: action.payload
+                registerStatus: action.payload
             }
         case LOGIN:
             // console.log(action.payload.data.user)

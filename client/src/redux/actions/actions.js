@@ -63,7 +63,7 @@ export const register = (user) => async dispatch => {
         })
     } catch (e) {
         return dispatch({
-            type: REGISTER_FAILED, payload: e
+            type: REGISTER_FAILED, payload: "Error"
         })
     }
 }

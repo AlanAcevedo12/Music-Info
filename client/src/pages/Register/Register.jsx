@@ -2,12 +2,15 @@ import { useState } from "react";
 import styles from "./Register.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/actions/actions"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
     const dispatch = useDispatch();
-    const registerError = useSelector(state => state.registerError);
+    const registerStatus = useSelector(state => state.registerStatus);
     const [input, setInput] = useState({ name: "", surname: "", email: "", password: "", username: "", age: "" });
     const [errors, setErrors] = useState({ name: "", surname: "", email: "", password: "", username: "", age: "" });
+    const navigate = useNavigate();
 
     function onChangeHandler(e) {
         if (e.target.name === "age") if (/[^0-9]/.test(e.target.value)) return;
@@ -21,10 +24,22 @@ function Register() {
         dispatch(register(input))
     }
 
+    useEffect(() => {
+        if (registerStatus) {
+            if (registerStatus.hasOwnProperty("data")){
+                setTimeout(() => {
+                    navigate("/home");
+                    window.location.reload();
+                }, 3000)
+            }
+        }
+    }, [registerStatus])
+
     return (
         <div className={styles.RegisterContainer}>
             <h1>Registrarse</h1>
-            {registerError && <span>ERROR</span>}
+            {registerStatus === "Error" && <span>ERROR</span>}
+            {registerStatus?.hasOwnProperty("data") && <span>Registrado exitosamente</span>}
             <form id={styles.form} onSubmit={submitHandler}>
                 <div className={styles.inputContainer}>
                     <label className={styles.inputLabel}>Correo electrónico</label>
@@ -33,8 +48,8 @@ function Register() {
                 </div>
                 <div className={styles.inputContainer}>
                     <label className={styles.inputLabel}>Nombre</label>
-                    <input className={errors.name.length ? styles.errorInput : styles.input} 
-                    type="text" name="name" value={input.name} onChange={onChangeHandler} />
+                    <input className={errors.name.length ? styles.errorInput : styles.input}
+                        type="text" name="name" value={input.name} onChange={onChangeHandler} />
                 </div>
                 <div className={styles.inputContainer}>
                     <label className={styles.inputLabel}>Apellido</label>
@@ -70,11 +85,11 @@ export function validation(input, globalInput, errors) {
                 errors.email = "";
             else
                 errors.email = "Formato inválido";
-        break;
+            break;
         case "name":
-            if(/[0-9]/.test(input.value)) errors.name = "Nombre inválido";
-            if(/[@$?¡\-_]/.test(input.value)) errors.name = "Nombre inválido";
-        break;
+            if (/[0-9]/.test(input.value)) errors.name = "Nombre inválido";
+            if (/[@$?¡\-_]/.test(input.value)) errors.name = "Nombre inválido";
+            break;
     }
 
     return errors;
