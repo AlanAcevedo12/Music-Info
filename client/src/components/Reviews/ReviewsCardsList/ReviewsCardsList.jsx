@@ -6,6 +6,24 @@ function ReviewsCardsList({ reviews }) {
         <div id={styles.cards}>
             <h1>Lista de reseñas</h1>
             <br />
+            <div id={styles.orderContainer}>
+                <div id={styles.imgButtonContainer}></div>
+                <div id={styles.albumButtonContainer}>
+                    <button className={styles.orderButton}>ÁLBUM</button>
+                </div>
+                <div id={styles.summaryButtonContainer}>
+                    <button className={styles.orderButton}>RESEÑA</button>
+                </div>
+                <div id={styles.buttonContainer}>
+                    <button className={styles.orderButton}>PUNTAJE</button>
+                </div>
+                <div id={styles.buttonContainer}>
+                    <button className={styles.orderButton}>AUTOR</button>
+                </div>
+                <div id={styles.buttonContainer}>
+                    <button className={styles.orderButton}>FECHA</button>
+                </div>
+            </div>
             {
                 reviews?.map(
                     (r, k) => {

@@ -6,3 +6,56 @@
     flex-direction: column;
     align-items: center;
 }
+
+#orderContainer {
+    /* background-color: red; */
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    border-bottom: #eaeaea;
+    border-bottom-style: solid;
+    border-width: 1px;
+    
+    /* padding: 8px; */
+    height: 32px;
+    margin-bottom: 1rem;
+}
+
+#imgButtonContainer {
+    flex: 0.5;
+    /* width: 3rem; */
+    /* background-color: cadetblue; */
+}
+
+#albumButtonContainer {
+    /* background-color: purple; */
+    display: flex;
+    /* width: 15%; */
+    flex: 2;
+    margin-left: 1rem;
+}
+
+#summaryButtonContainer {
+    /* background-color: blue; */
+    flex: 4;
+    display: flex;
+}
+
+#buttonContainer {
+    /* background-color: purple; */
+    display: flex;
+    /* width: 15%; */
+    flex: 1;
+}
+
+.orderButton{
+    background-color: rgba(250, 235, 215, 0);
+    border: none;
+    color: #72727d;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0;
+}

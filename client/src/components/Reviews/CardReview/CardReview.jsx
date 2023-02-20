@@ -15,6 +15,7 @@ function CardReview({ review }) {
             </div>
             <div id={styles.albumContainer}>
                 <p id={styles.album}>{review.album.title}</p>
+                <p id={styles.artist}>{review.album.artist.name}</p>
             </div>
             <div id={styles.infoContainer}>
                 <h1 id={styles.title}>{reviewData.title}</h1>
