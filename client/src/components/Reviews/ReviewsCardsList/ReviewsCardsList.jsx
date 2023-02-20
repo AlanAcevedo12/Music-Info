@@ -4,7 +4,7 @@ import styles from "./ReviewsCardsList.module.css";
 function ReviewsCardsList({ reviews }) {
     return (
         <div id={styles.cards}>
-            <h1>Lista de reseñas</h1>
+            <h1 id={styles.amount}></h1>
             <br />
             <div id={styles.orderContainer}>
                 <div id={styles.imgButtonContainer}></div>

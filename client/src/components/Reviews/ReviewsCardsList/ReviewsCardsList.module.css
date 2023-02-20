@@ -7,6 +7,12 @@
     align-items: center;
 }
 
+#amount{
+    width: 85%;
+    text-align: left;
+    margin-top: 2rem;
+}
+
 #orderContainer {
     /* background-color: red; */
     width: 85%;
