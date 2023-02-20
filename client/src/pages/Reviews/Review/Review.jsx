@@ -1,17 +1,27 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ReviewContent from "../../../components/Reviews/ReviewContent/ReviewContent";
-import { getReviewById } from "../../../redux/actions/actions";
+import { clearReview, getReviewById } from "../../../redux/actions/actions";
 import styles from "./Review.module.css";
 import NavBar from "../../../components/NavBar/NavBar";
 import SearchBar from "../../../components/SearchBar/SearchBar";
+import { useParams } from "react-router-dom";
 
 function Review() {
     const dispatch = useDispatch();
     const review = useSelector(store => store.review);
+    let { reviewId } = useParams("reviewId");
+
     useEffect(() => {
-        dispatch(getReviewById(2));
-    })
+        dispatch(getReviewById(reviewId));
+    }, [])
+
+    useEffect(() => {
+        return () => {
+            dispatch(clearReview());
+        }
+    },[])
+
     return (
         <div id={styles.home}>
             <div id={styles.mainContainer}>
@@ -23,7 +33,10 @@ function Review() {
                         <SearchBar />
                     </div>
                     <div id={styles.review}>
-                        <ReviewContent review={review} />
+                        {
+                            !review.data ? "loading..." :
+                                <ReviewContent review={review.review} albumData={review.data} />
+                        }
                     </div>
                 </div>
             </div>

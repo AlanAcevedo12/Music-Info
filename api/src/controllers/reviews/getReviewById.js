@@ -15,9 +15,9 @@ router.get("/", async (req, res) => {
                 model: Album
             }]
         });
-        let { data } = await axios.get("https://api.deezer.com/album/"+review.album.id);
-        review.album.append(data);
-        res.send(review);
+        let { data } = await axios.get("https://api.deezer.com/album/" + review.album.id);
+        let completeReview = { review, data };
+        res.send(completeReview);
     } catch (e) {
         console.log(e);
         res.send("Error al Obtener Reseña");

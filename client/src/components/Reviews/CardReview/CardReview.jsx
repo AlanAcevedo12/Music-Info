@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styles from "./CardReview.module.css";
-import axios from "axios";
+import { Link } from "react-router-dom"
 
 function CardReview({ review }) {
     let reviewData = review.review;
     const date = new Date(reviewData.date);
 
     return (
-        <div className={styles.card}>
+        <Link to={`/review/${reviewData.id}`} className={styles.card}>
             <div id={styles.imageContainer}>
                 <img id={styles.image}
                     src={`https://api.deezer.com/album/${reviewData.album.id}/image`} />
@@ -29,7 +29,7 @@ function CardReview({ review }) {
             <div id={styles.dateContainer}>
                 <h4 id={styles.date}>{date.toLocaleDateString()}</h4>
             </div>
-        </div>
+        </Link>
     )
 }
 

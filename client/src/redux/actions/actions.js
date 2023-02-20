@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_FAV, CLEAR_SEARCH, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_REVIEWS_BY_ALBUM, GET_REVIEWS_BY_USER, GET_REVIEW_BY_ID, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { ADD_FAV, CLEAR_REVIEW, CLEAR_SEARCH, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_REVIEWS_BY_ALBUM, GET_REVIEWS_BY_USER, GET_REVIEW_BY_ID, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -130,6 +130,7 @@ export const postReview = (review) => async dispatch => {
 
 export const getReviewById = (id) => async dispatch => {
     const { data } = await axios.get(`${URL}/review?id=${id}`);
+    // console.log(id)
     return dispatch({
         type: GET_REVIEW_BY_ID, payload: data
     })
@@ -148,5 +149,11 @@ export const getReviewsByAlbum = (albumId) => async dispatch => {
 
     return dispatch({
         type: GET_REVIEWS_BY_USER, payload: data
+    })
+}
+
+export const clearReview = () => async dispatch => {
+    return dispatch({
+        type: CLEAR_REVIEW, payload: null
     })
 }
