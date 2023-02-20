@@ -30,7 +30,7 @@ function NavBar() {
                                         </path>
                                     </svg>
                                 </div>
-                                <span id={styles.itemText}>Reseñas</span>
+                                <span id={styles.itemText}>Mis reseñas</span>
                             </div>
                         </Link>
                     </li>

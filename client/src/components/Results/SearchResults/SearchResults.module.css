@@ -32,6 +32,8 @@
     color: #52525d;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+    
+    cursor: pointer;
 }
 
 .NavButton:hover {
@@ -58,4 +60,6 @@
     border-bottom-style: solid;
     border-bottom-color: #ef5466;
     border-bottom-width: 2px;
+    
+    cursor: pointer;
 }
