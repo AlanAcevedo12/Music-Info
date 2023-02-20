@@ -6,7 +6,7 @@ function ReviewsCardsList({ reviews }) {
         <div id={styles.cards}>
             <h1 id={styles.amount}></h1>
             <br />
-            <div id={styles.orderContainer}>
+            { reviews.length ? <div id={styles.orderContainer}>
                 <div id={styles.imgButtonContainer}></div>
                 <div id={styles.albumButtonContainer}>
                     <button className={styles.orderButton}>ÁLBUM</button>
@@ -23,7 +23,8 @@ function ReviewsCardsList({ reviews }) {
                 <div id={styles.buttonContainer}>
                     <button className={styles.orderButton}>FECHA</button>
                 </div>
-            </div>
+            </div> 
+            : <img id={styles.loadingImg} src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif" />}
             {
                 reviews?.map(
                     (r, k) => {
