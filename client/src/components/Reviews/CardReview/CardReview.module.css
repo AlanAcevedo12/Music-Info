@@ -72,13 +72,18 @@
     text-overflow: ellipsis;
 }
 
+#descriptionContainer {
+    /* background-color: red; */
+    width: 100%;
+    overflow: hidden;
+    height: 1rem;
+}
+
 #description {
-    font-size: 1rem;
+    font-size: 0.7rem;
     /* background-color: rgb(240, 144, 18); */
     margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-align: left;
 }
 
 #scoreContainer {

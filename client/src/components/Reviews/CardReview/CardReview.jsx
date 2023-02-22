@@ -19,7 +19,9 @@ function CardReview({ review }) {
             </div>
             <div id={styles.infoContainer}>
                 <h1 id={styles.title}>{reviewData.title}</h1>
-                <p id={styles.description}>{reviewData.description}</p>
+                <div id={styles.descriptionContainer}>
+                    <p id={styles.description}>{reviewData.description.slice(0 ,75) + "..."}</p>
+                </div>
             </div>
             <div id={styles.scoreContainer}>
                 <h2 id={styles.score}>{reviewData.score}/100</h2>

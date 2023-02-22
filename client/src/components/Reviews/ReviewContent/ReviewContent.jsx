@@ -6,12 +6,19 @@ import styles from "./ReviewContent.module.css";
 
 function ReviewContent({ review, albumData }) {
 
+    console.log(review)
+
     let date;
     if (review) date = new Date(review.date);
 
     return (
         <div id={styles.reviewContent}>
-            <h1>{review?.title.toUpperCase()}</h1>
+            <div id={styles.titleCoverContainer}>
+                <h1 id={styles.title}>{review?.title.toUpperCase()}</h1>
+                <div id={styles.coverContainer}>
+                    <img id={styles.cover} src={albumData.cover_xl} />
+                </div>
+            </div>
             <h2>{review?.score}/100</h2>
             <p>{review?.description}</p>
             <h4>{date?.toLocaleDateString()}</h4>
