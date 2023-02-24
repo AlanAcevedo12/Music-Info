@@ -18,6 +18,8 @@ function SearchResults() {
     setSearchNav(e.target.name)
   }
 
+  console.log(searchResultsAlbum)
+
   return (
     <div>
       <div id={styles.resultsNav}>

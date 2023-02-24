@@ -14,6 +14,8 @@ function AlbumsResults({ items }) {
         // console.log(album);
     }
 
+    console.log(items)
+
     // useEffect(() => {
     //     if (album.tracks) {
     //         dispatch(setCurrentQueue(album.tracks.data))

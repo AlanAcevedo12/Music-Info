@@ -1,6 +1,6 @@
 import styles from "./TrackCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite, setCurrentQueue, setPlayerTrack } from "../../../redux/actions/actions";
+import { addFavoriteTracks, removeFavoriteTracks, setCurrentQueue, setPlayerTrack } from "../../../redux/actions/actions";
 import { useEffect, useState } from "react";
 
 function TrackCard({ item, index }) {
@@ -20,14 +20,14 @@ function TrackCard({ item, index }) {
     function addToFavorite() {
         const data = { trackId: item.id, userId: user.id };
         console.log(data);
-        dispatch(addFavorite(data))
+        dispatch(addFavoriteTracks(data))
         setIsFav(true);
     }
 
     function deleteFavorite() {
         const data = { trackId: item.id, userId: user.id };
         console.log(data);
-        dispatch(removeFavorite(data))
+        dispatch(removeFavoriteTracks(data))
         setIsFav(false);
     }
 

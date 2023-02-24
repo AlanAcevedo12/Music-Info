@@ -1,15 +1,17 @@
 import {
     GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_TRACK, LOGIN, LOGOUT, REGISTER, REGISTER_FAILED, SET_CURRENT_TRACK, SET_PLAYER_TRACK,
     SET_CURRENT_QUEUE,
-    ADD_FAV,
-    DEL_FAV,
     GET_TRACKS_BY_ID,
     CLEAR_SEARCH,
     POST_REVIEW,
     GET_REVIEW_BY_ID,
     GET_REVIEWS_BY_ALBUM,
     GET_REVIEWS_BY_USER,
-    CLEAR_REVIEW
+    CLEAR_REVIEW,
+    ADD_FAV_TRACK,
+    DEL_FAV_TRACK,
+    ADD_FAV_ALBUM,
+    GET_ALBUMS_BY_ID
 } from "../actions/actionsTypes";
 
 
@@ -90,14 +92,15 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state
             }
-        case ADD_FAV:
+        case ADD_FAV_TRACK:
+        case ADD_FAV_ALBUM:
             localStorage.setItem("user", JSON.stringify(action.payload.user));
             // console.log(action.payload.user)
             return {
                 ...state,
                 user: action.payload.user
             }
-        case DEL_FAV:
+        case DEL_FAV_TRACK:
             localStorage.setItem("user", JSON.stringify(action.payload.user));
             return {
                 ...state,
@@ -108,6 +111,12 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 tracks: action.payload
+            }
+        case GET_ALBUMS_BY_ID:
+            // console.log(action.payload)
+            return {
+                ...state,
+                albums: action.payload
             }
         case CLEAR_SEARCH:
             return {

@@ -14,10 +14,13 @@ export const REGISTER_FAILED = "REGISTER_FAILED";
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 
-export const ADD_FAV = "ADD_FAV";
-export const DEL_FAV = "DEL_FAV";
+export const ADD_FAV_TRACK = "ADD_FAV_TRACK";
+export const DEL_FAV_TRACK = "DEL_FAV_TRACK";
+export const ADD_FAV_ALBUM = "ADD_FAV_ALBUM";
+export const DEL_FAV_ALBUM = "DEL_FAV_ALBUM";
 
 export const GET_TRACKS_BY_ID = "GET_TRACKS_BY_ID";
+export const GET_ALBUMS_BY_ID = "GET_ALBUMS_BY_ID";
 
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
 

@@ -23,7 +23,8 @@ router.put("/removeFav/tracks", async (req, res) => {
                     username: user.username,
                     email: user.email,
                     age: user.age,
-                    favoriteTracks: user.favoriteTracks
+                    favoriteTracks: user.favoriteTracks,
+                    favoriteAlbums: user.favoriteAlbums
                 }
             });
         }

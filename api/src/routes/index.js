@@ -7,6 +7,7 @@ const register = require("../controllers/authentication/register");
 const login = require("../controllers/authentication/login");
 const logout = require('../controllers/authentication/logout');
 const getAlbum = require("../controllers/getAlbum.js");
+const getAlbumsbyId = require("../controllers/getAlbumsById.js")
 
 const addFavoriteTrack = require("../controllers/favorites/addFavoriteTrack");
 const removeFavoriteTrack = require("../controllers/favorites/removeFavoriteTrack.js");
@@ -25,7 +26,7 @@ router.use("/search", searchArtist);
 router.use("/search", searchAlbum);
 
 router.use("/get", getAlbum);
-
+router.use("/get", getAlbumsbyId);
 router.use("/get", getTracksById);
 
 router.use("/test", test);

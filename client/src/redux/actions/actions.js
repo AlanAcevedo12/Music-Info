@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_FAV, CLEAR_REVIEW, CLEAR_SEARCH, DEL_FAV, GET_ALBUM, GET_ALBUM_BY_ID, GET_ARTIST, GET_REVIEWS_BY_ALBUM, GET_REVIEWS_BY_USER, GET_REVIEW_BY_ID, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { ADD_FAV_ALBUM, ADD_FAV_TRACK, CLEAR_REVIEW, CLEAR_SEARCH, DEL_FAV_TRACK, GET_ALBUM, GET_ALBUMS_BY_ID, GET_ALBUM_BY_ID, GET_ARTIST, GET_REVIEWS_BY_ALBUM, GET_REVIEWS_BY_USER, GET_REVIEW_BY_ID, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -91,19 +91,27 @@ export const logout = () => async dispatch => {
     }
 }
 
-export const addFavorite = (fav) => async dispatch => {
+export const addFavoriteTracks = (fav) => async dispatch => {
     // console.log(fav);
-    const { data } = await axios.put(`${URL}/favorite/addFav`, fav);
+    const { data } = await axios.put(`${URL}/favorite/addFav/tracks`, fav);
     return dispatch({
-        type: ADD_FAV, payload: data
+        type: ADD_FAV_TRACK, payload: data
     })
 }
 
-export const removeFavorite = (fav) => async dispatch => {
+export const removeFavoriteTracks = (fav) => async dispatch => {
     // console.log(fav);
-    const { data } = await axios.put(`${URL}/favorite/removeFav`, fav);
+    const { data } = await axios.put(`${URL}/favorite/removeFav/tracks`, fav);
     return dispatch({
-        type: DEL_FAV, payload: data
+        type: DEL_FAV_TRACK, payload: data
+    })
+}
+
+export const addFavoriteAlbums = (fav) => async dispatch => {
+    // console.log(fav);
+    const { data } = await axios.put(`${URL}/favorite/addFav/albums`, fav);
+    return dispatch({
+        type: ADD_FAV_ALBUM, payload: data
     })
 }
 
@@ -112,6 +120,14 @@ export const getTracksById = (ids) => async dispatch => {
 
     return dispatch({
         type: GET_TRACKS_BY_ID, payload: data
+    })
+}
+
+export const getAlbumsById = (ids) => async dispatch => {
+    const { data } = await axios.post(`${URL}/get/albums`, { albumsId: ids });
+
+    return dispatch({
+        type: GET_ALBUMS_BY_ID, payload: data
     })
 }
 

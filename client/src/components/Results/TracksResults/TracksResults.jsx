@@ -5,6 +5,8 @@ import Loading from "../../Loading/Loading"
 
 function TracksResults({ name, items }) {
 
+    console.log(items)
+
     return (
         <div id={styles.SearchResults}>
             {items.length ? <>
