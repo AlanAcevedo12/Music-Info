@@ -115,6 +115,14 @@ export const addFavoriteAlbums = (fav) => async dispatch => {
     })
 }
 
+export const removeFavoriteAlbums = (fav) => async dispatch => {
+    // console.log(fav);
+    const { data } = await axios.put(`${URL}/favorite/removeFav/tracks`, fav);
+    return dispatch({
+        type: DEL_FAV_TRACK, payload: data
+    })
+}
+
 export const getTracksById = (ids) => async dispatch => {
     const { data } = await axios.post(`${URL}/get/track`, { tracksId: ids });
 
