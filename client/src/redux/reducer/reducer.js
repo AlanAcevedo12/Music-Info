@@ -11,7 +11,8 @@ import {
     ADD_FAV_TRACK,
     DEL_FAV_TRACK,
     ADD_FAV_ALBUM,
-    GET_ALBUMS_BY_ID
+    GET_ALBUMS_BY_ID,
+    DEL_FAV_ALBUM
 } from "../actions/actionsTypes";
 
 
@@ -101,6 +102,7 @@ const rootReducer = (state = initialState, action) => {
                 user: action.payload.user
             }
         case DEL_FAV_TRACK:
+        case DEL_FAV_ALBUM:
             localStorage.setItem("user", JSON.stringify(action.payload.user));
             return {
                 ...state,

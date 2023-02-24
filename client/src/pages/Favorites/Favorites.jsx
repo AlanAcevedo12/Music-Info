@@ -38,12 +38,7 @@ function Search() {
                     <div id={styles.search}>
                         <SearchBar defaultInput={input} />
                     </div>
-                    {
-                        tracks.length ?
-                            <SearchResults />
-                            :
-                            <h1>Aún no has agregado canciones favoritas</h1>
-                    }
+                    <SearchResults />
                 </div>
             </div>
         </div>

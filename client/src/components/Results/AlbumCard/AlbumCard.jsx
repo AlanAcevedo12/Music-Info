@@ -1,16 +1,27 @@
 import { Link } from "react-router-dom";
 import styles from "./AlbumCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavoriteAlbums } from "../../../redux/actions/actions";
+import { addFavoriteAlbums, removeFavoriteAlbums } from "../../../redux/actions/actions";
+import { useEffect, useState } from "react";
 
 function AlbumCard({ item, getAlbum }) {
     const dispatch = useDispatch();
-    
     const user = useSelector(state => state.user);
+    const [isFav, setIsFav] = useState(user?.favoriteAlbums.includes(item.id));
 
     function addToFav() {
-        dispatch(addFavoriteAlbums({ albumId: item.id, userId: user.id }))
+        dispatch(addFavoriteAlbums({ albumId: item.id, userId: user.id }));
+        setIsFav(true);
     }
+
+    function deleteFavorite() {
+        dispatch(removeFavoriteAlbums({ albumId: item.id, userId: user.id }));
+        setIsFav(false);
+    }
+
+    useEffect(() => {
+        console.log("actualiza")
+    }, [user])
 
     return (
         <div id={styles.albumContainer}>
@@ -38,7 +49,12 @@ function AlbumCard({ item, getAlbum }) {
                         </Link>
                     </button>
                 </div>
-                <button onClick={addToFav}>FAV</button>
+                {
+                    isFav === false ?
+                    <button onClick={addToFav}>FAV</button>
+                    :
+                    <button onClick={deleteFavorite}>DEL</button>
+                }
             </div>
 
             <div id={styles.infoContainer}>

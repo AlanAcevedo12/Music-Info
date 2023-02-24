@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_FAV_ALBUM, ADD_FAV_TRACK, CLEAR_REVIEW, CLEAR_SEARCH, DEL_FAV_TRACK, GET_ALBUM, GET_ALBUMS_BY_ID, GET_ALBUM_BY_ID, GET_ARTIST, GET_REVIEWS_BY_ALBUM, GET_REVIEWS_BY_USER, GET_REVIEW_BY_ID, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
+import { ADD_FAV_ALBUM, ADD_FAV_TRACK, CLEAR_REVIEW, CLEAR_SEARCH, DEL_FAV_ALBUM, DEL_FAV_TRACK, GET_ALBUM, GET_ALBUMS_BY_ID, GET_ALBUM_BY_ID, GET_ARTIST, GET_REVIEWS_BY_ALBUM, GET_REVIEWS_BY_USER, GET_REVIEW_BY_ID, GET_TRACK, GET_TRACKS_BY_ID, LOGIN, LOGOUT, POST_REVIEW, REGISTER, REGISTER_FAILED, SET_CURRENT_QUEUE, SET_CURRENT_TRACK, SET_PLAYER_TRACK } from "./actionsTypes";
 
 const URL = "http://localhost:3001";
 
@@ -117,9 +117,9 @@ export const addFavoriteAlbums = (fav) => async dispatch => {
 
 export const removeFavoriteAlbums = (fav) => async dispatch => {
     // console.log(fav);
-    const { data } = await axios.put(`${URL}/favorite/removeFav/tracks`, fav);
+    const { data } = await axios.put(`${URL}/favorite/removeFav/albums`, fav);
     return dispatch({
-        type: DEL_FAV_TRACK, payload: data
+        type: DEL_FAV_ALBUM, payload: data
     })
 }
 

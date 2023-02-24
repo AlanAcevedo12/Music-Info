@@ -32,7 +32,7 @@ function AlbumsResults({ items }) {
                 {
                     items.map(
                         (item, k) => {
-                            return <AlbumCard item={item} key={k} getAlbum={getAlbum}/>
+                            return <AlbumCard item={item} key={item.id} getAlbum={getAlbum}/>
                         }
                     )
                 }

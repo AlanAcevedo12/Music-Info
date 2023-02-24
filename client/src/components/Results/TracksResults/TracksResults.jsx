@@ -29,7 +29,7 @@ function TracksResults({ name, items }) {
                 </div>
             </> : <Loading />}
             {items.map((item, index) => {
-                return <TrackCard item={item} index={index} key={index} />
+                return <TrackCard item={item} index={index} key={item.id} />
             })}
         </div>
     )
