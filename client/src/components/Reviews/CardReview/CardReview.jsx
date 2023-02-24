@@ -19,9 +19,7 @@ function CardReview({ review }) {
             </div>
             <div id={styles.infoContainer}>
                 <h1 id={styles.title}>{reviewData.title}</h1>
-                <div id={styles.descriptionContainer}>
-                    <p id={styles.description}>{reviewData.description.slice(0 ,75) + "..."}</p>
-                </div>
+                <p id={styles.description}>{reviewData.description}</p>
             </div>
             <div id={styles.scoreContainer}>
                 <h2 id={styles.score}>{reviewData.score}/100</h2>
@@ -32,7 +30,7 @@ function CardReview({ review }) {
             <div id={styles.dateContainer}>
                 <h4 id={styles.date}>{date.toLocaleDateString()}</h4>
             </div>
-        </Link>
+        </Link >
     )
 }
 
