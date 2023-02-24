@@ -19,10 +19,13 @@ function ReviewContent({ review, albumData }) {
                     <img id={styles.cover} src={albumData.cover_xl} />
                 </div>
             </div>
-            <h2>{review?.score}/100</h2>
-            <p>{review?.description}</p>
-            <h4>{date?.toLocaleDateString()}</h4>
-            <h5>by {review?.user.name + " " + review?.user.surname}</h5>
+            <p id={styles.description}>{review?.description}</p>
+            <h2 id={styles.finalScore}>Puntaje final: {review?.score}/100</h2>
+            <div id={styles.reviewFooter}>
+                <h4>{date?.toLocaleDateString()}</h4>
+                <h5>by {review?.user.name + " " + review?.user.surname}</h5>
+                {/* <h5>by {review?.user.username}</h5> */}
+            </div>
         </div>
     )
 }

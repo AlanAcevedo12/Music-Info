@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
             where: where,
             include: [{
                 model: User,
-                attributes: ["name", "surname"]
+                attributes: ["name", "surname", "username"]
             },
             {
                 model: Album

@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
         let review = await Review.findByPk(id, {
             include: [{
                 model: User,
-                attributes: ["name", "surname"]
+                attributes: ["name", "surname", "username"]
             },
             {
                 model: Album
