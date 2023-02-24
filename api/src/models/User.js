@@ -32,6 +32,10 @@ module.exports = (sequelize) => {
     favoriteTracks: {
       type: DataTypes.JSON,
       defaultValue: [],
+    },
+    favoriteAlbums: {
+      type: DataTypes.JSON,
+      defaultValue: [],
     }
   }, {
     timestamps: false

@@ -1,5 +1,6 @@
 import CardReview from "../CardReview/CardReview";
 import styles from "./ReviewsCardsList.module.css";
+import Loading from "../../Loading/Loading"
 
 function ReviewsCardsList({ reviews }) {
     return (
@@ -24,7 +25,7 @@ function ReviewsCardsList({ reviews }) {
                     <button className={styles.orderButton}>FECHA</button>
                 </div>
             </div> 
-            : <img id={styles.loadingImg} src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif" />}
+            : <Loading />}
             {
                 reviews?.map(
                     (r, k) => {

@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import React, { lazy, Suspense } from "react";
 import Landing from "./pages/Landing/Landing";
 import Player from './components/Player/Player';
+import Loading from './components/Loading/Loading';
 // import ListReviews from './pages/ListReviews/ListReviews';
 // import Home from "./pages/Home/Home";
 // import Register from './pages/Register/Register';
@@ -23,7 +24,7 @@ function App() {
 	return (
 		<div className="App">
 			<Player />
-			<Suspense fallback={<h1>Cargando...</h1>}>
+			<Suspense fallback={<Loading />}>
 				<Routes >
 					<Route
 						excact

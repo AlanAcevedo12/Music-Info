@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import TrackCard from "../TrackCard/TrackCard";
 import styles from "./TracksResults.module.css";
+import Loading from "../../Loading/Loading"
 
 function TracksResults({ name, items }) {
 
@@ -24,7 +25,7 @@ function TracksResults({ name, items }) {
                         <button className={styles.orderButton}>O</button>
                     </div>
                 </div>
-            </> : <img id={styles.loadingImg} src="https://flevix.com/wp-content/uploads/2019/07/Untitled-2.gif" />}
+            </> : <Loading />}
             {items.map((item, index) => {
                 return <TrackCard item={item} index={index} key={index} />
             })}

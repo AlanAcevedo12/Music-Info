@@ -6,6 +6,7 @@ import styles from "./Review.module.css";
 import NavBar from "../../../components/NavBar/NavBar";
 import SearchBar from "../../../components/SearchBar/SearchBar";
 import { useParams } from "react-router-dom";
+import Loading from "../../../components/Loading/Loading"
 
 function Review() {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function Review() {
         return () => {
             dispatch(clearReview());
         }
-    },[])
+    }, [])
 
     return (
         <div id={styles.home}>
@@ -34,7 +35,8 @@ function Review() {
                     </div>
                     <div id={styles.review}>
                         {
-                            !review.data ? "loading..." :
+                            !review.data ?
+                                <Loading /> :
                                 <ReviewContent review={review.review} albumData={review.data} />
                         }
                     </div>

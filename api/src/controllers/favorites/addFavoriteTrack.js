@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const axios = require("axios");
 const router = Router();
-const { User } = require("../db.js");
+const { User } = require("../../db.js");
 
-router.put("/addFav", async (req, res) => {
+router.put("/addFav/tracks", async (req, res) => {
     const { trackId, userId } = req.body;
     if (!trackId) res.status(400).send({ msg: "Datos incorrectos" });
     try {
