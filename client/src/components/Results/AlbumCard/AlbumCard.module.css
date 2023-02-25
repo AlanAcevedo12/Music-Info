@@ -25,17 +25,21 @@
     position: absolute;
 }
 
-#albumImage:hover #filter{
+#albumImage:hover #filter {
     opacity: 0.24;
 }
 
-#albumImage:hover{
-    box-shadow: 0 1px 6px rgba(25,25,34,.24);
+#albumImage:hover {
+    box-shadow: 0 1px 6px rgba(25, 25, 34, .24);
 }
 
 #image {
     /* border-radius: 50%; */
     /* opacity: 0; */
+}
+
+#albumImage:hover #playButtonContainer {
+    visibility: visible;
 }
 
 #playButtonContainer {
@@ -46,6 +50,7 @@
     height: 40px;
     /* background-color: red; */
     display: block;
+    visibility: hidden;
 }
 
 #playButton {
@@ -97,6 +102,10 @@
     float: left;
 }
 
+#albumImage:hover #reviewButtonContainer {
+    visibility: visible;
+}
+
 #reviewButtonContainer {
     position: absolute;
     bottom: 16px;
@@ -105,6 +114,7 @@
     height: 40px;
     /* background-color: red; */
     display: block;
+    visibility: hidden;
 }
 
 #reviewButton {
@@ -122,4 +132,49 @@
 
 #reviewButton:hover {
     background-color: #f4f4f4;
+}
+
+/*------------------FAV---------------------*/
+
+#favButtonContainer {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    /* background-color: red; */
+    display: block;
+    visibility: hidden;
+
+}
+
+#albumImage:hover #favButtonContainer {
+    visibility: visible;
+}
+
+#addFavButton {
+    /* background-color: #f4f4f400; */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+#favSvg {
+    width: 1rem;
+    height: 1rem;
+    color: #32323d;
+    fill: currentColor;
+    transition-duration: 1s;
+}
+
+#remFavSvg {
+    width: 1rem;
+    height: 1rem;
+    color: #EF5466;
+    fill: currentColor;
 }
