@@ -1,6 +1,7 @@
 #reviewContent {
     /* background-color: darkcyan; */
     width: 90%;
+    max-width: 90%;
     height: auto;
 }
 
@@ -57,11 +58,20 @@
     /* filter: blur(2px); */
 }
 
+#descriptionContainer{
+    /* background-color: red; */
+    width: 90%;
+    max-width: 60vw;
+    margin: auto;
+    overflow-wrap: break-word;
+}
+
 #description {
     white-space: pre-line;
     margin-top: 2rem;
     margin-bottom: 2rem;
     text-align: justify;
+    width: 100%;
 }
 
 #finalScore {
