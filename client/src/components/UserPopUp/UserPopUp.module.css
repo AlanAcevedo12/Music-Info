@@ -1,4 +1,4 @@
-#popUpContainer{
+#popUpContainer {
     background-color: white;
     width: 375px;
     height: 200px;
@@ -8,6 +8,22 @@
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     box-shadow: 0 1px 6px rgb(25 25 34 / 16%);
+}
+
+#usernameContainer {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#userData {
+    /* background-color: aquamarine; */
+    width: fit-content;
 }

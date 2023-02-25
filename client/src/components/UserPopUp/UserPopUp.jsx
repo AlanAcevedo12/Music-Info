@@ -21,7 +21,10 @@ function UserPopUp({ user }) {
 
     return (
         <div id={styles.popUpContainer}>
-            <h1>{user.username}</h1>
+            <div id={styles.usernameContainer}>
+                <span id={styles.userData}>{user.name + " " + user.surname}</span>
+                <span id={styles.userData}>{user.username}</span>
+            </div>
             <button onClick={goToProfile}>Perfil</button>
             <button onClick={logoutHandler}>Desconectarse</button>
         </div>
