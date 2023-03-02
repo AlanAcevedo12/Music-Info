@@ -85,3 +85,11 @@
     border-bottom-color: #ef5466;
     border-bottom-width: 2px;
 }
+
+#reviews {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    /* background-color: green; */
+}

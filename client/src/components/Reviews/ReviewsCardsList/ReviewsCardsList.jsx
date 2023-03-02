@@ -7,7 +7,7 @@ function ReviewsCardsList({ reviews }) {
         <div id={styles.cards}>
             <h1 id={styles.amount}></h1>
             <br />
-            { reviews.length ? <div id={styles.orderContainer}>
+            {reviews.length ? <div id={styles.orderContainer}>
                 <div id={styles.imgButtonContainer}></div>
                 <div id={styles.albumButtonContainer}>
                     <button className={styles.orderButton}>ÁLBUM</button>
@@ -24,16 +24,17 @@ function ReviewsCardsList({ reviews }) {
                 <div id={styles.buttonContainer}>
                     <button className={styles.orderButton}>FECHA</button>
                 </div>
-            </div> 
-            : <Loading />}
+            </div>
+                : <Loading />}
             {
-                reviews?.map(
+                reviews.length ? reviews?.map(
                     (r, k) => {
                         return (
-                            <CardReview review={r} key={k} />
+                            <CardReview review={r} key={r.id} />
                         )
                     }
                 )
+                    : null
             }
         </div>
     )

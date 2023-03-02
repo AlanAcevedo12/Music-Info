@@ -12,7 +12,8 @@ import {
     DEL_FAV_TRACK,
     ADD_FAV_ALBUM,
     GET_ALBUMS_BY_ID,
-    DEL_FAV_ALBUM
+    DEL_FAV_ALBUM,
+    GET_LAST_REVIEWS
 } from "../actions/actionsTypes";
 
 
@@ -138,11 +139,8 @@ const rootReducer = (state = initialState, action) => {
                 review: action.payload
             }
         case GET_REVIEWS_BY_ALBUM:
-            return {
-                ...state,
-                reviews: action.payload
-            }
         case GET_REVIEWS_BY_USER:
+        case GET_LAST_REVIEWS:
             return {
                 ...state,
                 reviews: action.payload
@@ -150,7 +148,8 @@ const rootReducer = (state = initialState, action) => {
         case CLEAR_REVIEW:
             return {
                 ...state,
-                review: {}
+                review: {},
+                reviews: {}
             }
         default: return state;
     }

@@ -22,6 +22,7 @@ export const DEL_FAV_ALBUM = "DEL_FAV_ALBUM";
 export const GET_TRACKS_BY_ID = "GET_TRACKS_BY_ID";
 export const GET_ALBUMS_BY_ID = "GET_ALBUMS_BY_ID";
 
+
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
 
 //REVIEW
@@ -29,4 +30,5 @@ export const POST_REVIEW = "POST_REVIEW";
 export const GET_REVIEW_BY_ID = "GET_REVIEW_BY_ID";
 export const GET_REVIEWS_BY_ALBUM = "GET_REVIEWS_BY_ALBUM";
 export const GET_REVIEWS_BY_USER = "GET_REVIEWS_BY_USER";
+export const GET_LAST_REVIEWS = "GET_LAST_REVIEWS";
 export const CLEAR_REVIEW = "CLEAR_REVIEW";

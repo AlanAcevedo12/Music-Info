@@ -20,6 +20,9 @@ function ReviewContent({ review, albumData }) {
                 </div>
             </div>
             <div id={styles.descriptionContainer}>
+                <span>{albumData.title}</span>
+                <br />
+                <span>{albumData.artist.name}</span>
                 <p id={styles.description}>{review?.description}</p>
                 {/* a */}
             </div>
